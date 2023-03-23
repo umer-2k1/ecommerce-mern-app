@@ -28,7 +28,7 @@ dotnet.config()
 if (process.env.NODE_ENV !== 'production') {
   app.get('/*', (req,res)=>{
     app.use(express.static(path.resolve(__dirname, './frontend','build')))
-    res.sendFile(path.resolve(__dirname, './frontend','build', './index.html'))
+    res.sendFile(path.resolve(__dirname, './frontend','build', 'index.html'))
   })
 }
 
