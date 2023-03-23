@@ -1,0 +1,105 @@
+/* .page-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    margin: 2vmax auto;
+    cursor: pointer;
+}
+
+.page-links:not(:last-child) {
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    margin: 1vmax 1.5vmax;
+    transition: all 0.1s;
+    color: blue;
+}
+.page-links:hover {
+    background-color: rgb(230,230,230);
+}
+
+.page-links:last-child{
+    background-color: red;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    padding: 1vmax 1.5vmax;
+    background-color: rgb(255, 255, 255);
+}
+
+ .nxt-class1{
+background-color: #2240AF;
+padding: 1vmax 2vmax;
+color: white;
+font-weight: bold;
+border-radius: 0 8px 8px 0;
+cursor: pointer;
+}
+.prev-class1{
+    border-radius: 8px 0 0 8px;
+    font-weight: bold;
+    color: white;
+    padding: 1vmax 2vmax;
+    background-color: #2240AF;
+}
+.active-class{
+    background-color: #cee3f8;
+    background-color: red;
+}
+.active-class-link{
+    color: black;
+
+} */
+
+
+
+
+
+.page-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    margin: 2vmax auto;
+    cursor: pointer;
+}
+
+.page-links {
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    padding: 1vmax 1.5vmax;
+    transition: all 0.1s;
+}
+.page-links:hover {
+    background-color: rgb(230,230,230);
+}
+
+.page-links:active{
+    background-color: red;
+    color: black;
+    transition: all 0.5s;
+}
+
+ .nxt-class1{
+background-color: #2240AF;
+padding: 1vmax 2vmax;
+color: white;
+font-weight: bold;
+border-radius: 0 8px 8px 0;
+cursor: pointer;
+}
+.prev-class1{
+    border-radius: 8px 0 0 8px;
+    font-weight: bold;
+    color: white;
+    padding: 1vmax 2vmax;
+    background-color: #2240AF;
+}
+/* .active-class{
+    background-color: #cee3f8;
+}
+.active-class-link{
+    background-color: red;
+    color: black;
+    transition: all 0.5s;
+} */
