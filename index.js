@@ -24,28 +24,14 @@ dotnet.config()
   //   res.sendFile(path.resolve(__dirname, 'frontend','build', 'index.html'))
   // })
 
-// dotnet.config()
-// if (process.env.NODE_ENV !== 'production') {
-//   app.get('/', (req,res)=>{
-//     app.use(express.static(path.resolve(__dirname, 'frontend','build')))
-//     res.sendFile(path.resolve(__dirname, 'frontend','build', 'index.html'))
-//   })
-// }
-
-const mime = require('mime');
-
 dotnet.config()
 if (process.env.NODE_ENV !== 'production') {
-  app.use(express.static(path.resolve(__dirname, 'frontend', 'build'), {
-    setHeaders: function(res, path) {
-      if (mime.getType(path) === 'text/html') {
-        res.setHeader('Content-Type', 'text/html');
-      } else if (mime.getType(path) === 'application/javascript') {
-        res.setHeader('Content-Type', 'application/javascript');
-      }
-    }
-  }));
+  app.get('/', (req,res)=>{
+    app.use(express.static(path.resolve(__dirname, 'frontend','build')))
+    res.sendFile(path.resolve(__dirname, 'frontend','build', 'index.html'))
+  })
 }
+
 
 
 
