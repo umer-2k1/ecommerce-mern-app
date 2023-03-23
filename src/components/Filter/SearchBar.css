@@ -1,0 +1,17 @@
+#s-bar {
+    /* background-color: blue; */
+    /* color: black;
+    width: 10rem;
+    padding: 2px;
+    border: 2px solid blue;
+    border: none; */
+
+    border: 1px solid grey;
+    border-radius: 5px;
+    height: 40px;
+    width: 100%;
+    padding: 4px;
+    outline: 0;
+    background-color: #f5f5f5;
+
+}
