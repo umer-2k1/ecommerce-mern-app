@@ -18,6 +18,14 @@ const app = express()
 
 dotnet.config()
 // config
+  // dotnet.config({ path: 'backend/config/config.env' });
+  // app.get('*', (req,res)=>{
+  //   app.use(express.static(path.resolve(__dirname, 'frontend','build')))
+  //   res.sendFile(path.resolve(__dirname, 'frontend','build', 'index.html'))
+  // })
+
+dotnet.config()
+// config
 if (process.env.NODE_ENV !== 'production') {
   // dotnet.config({ path: 'backend/config/config.env' });
   app.get('/', (req,res)=>{
