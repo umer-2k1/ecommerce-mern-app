@@ -17,6 +17,7 @@ const BASE_URL = 5000 || process.env.BASE_URL
 const app = express()
 
 dotnet.config()
+connectToDB()
 // config
   // dotnet.config({ path: 'backend/config/config.env' });
   // app.get('*', (req,res)=>{
@@ -24,18 +25,17 @@ dotnet.config()
   //   res.sendFile(path.resolve(__dirname, 'frontend','build', 'index.html'))
   // })
 
-dotnet.config()
-if (process.env.NODE_ENV !== 'production') {
-  app.get('/*', (req,res)=>{
+  if (process.env.NODE_ENV !== 'production') {
     app.use(express.static(path.join(__dirname, './frontend','build')))
+    app.get('/*', (req,res)=>{
     res.sendFile(path.join(__dirname, './frontend','build', 'index.html'))
   })
 }
+app.use(cors({ origin: "https://absolute-estore-zeta.vercel.app/", credentials: true }))
 
 
 
 
-connectToDB()
 
 // cloudinary
 cloudinary.config({
@@ -45,14 +45,8 @@ cloudinary.config({
 })
 
 
-
-
-
-
-
 // app.use(cors({origin: '*', credentials: true}))
 // app.use(cors({ origin: "http://localhost:3000", credentials: true }))
-app.use(cors({ origin: "https://absolute-estore-zeta.vercel.app/", credentials: true }))
 
 
 
@@ -79,10 +73,6 @@ app.use('/api/payment',paymentRoutes)
 //     res.sendFile(path.resolve(__dirname, '../ecommerce/build.index.html'))
 //   })
 // }
-
-
-// middle ware for error handling
-
 
 app.listen(process.env.PORT, () => {
   console.log(`Example app listening at http://localhost:${BASE_URL} 🚀`)
