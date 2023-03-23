@@ -24,15 +24,30 @@ dotnet.config()
   //   res.sendFile(path.resolve(__dirname, 'frontend','build', 'index.html'))
   // })
 
+// dotnet.config()
+// if (process.env.NODE_ENV !== 'production') {
+//   app.get('/', (req,res)=>{
+//     app.use(express.static(path.resolve(__dirname, 'frontend','build')))
+//     res.sendFile(path.resolve(__dirname, 'frontend','build', 'index.html'))
+//   })
+// }
+
+const mime = require('mime');
+
 dotnet.config()
-// config
 if (process.env.NODE_ENV !== 'production') {
-  // dotnet.config({ path: 'backend/config/config.env' });
-  app.get('/', (req,res)=>{
-    app.use(express.static(path.resolve(__dirname, 'frontend','build')))
-    res.sendFile(path.resolve(__dirname, 'frontend','build', 'index.html'))
-  })
+  app.use(express.static(path.resolve(__dirname, 'frontend', 'build'), {
+    setHeaders: function(res, path) {
+      if (mime.getType(path) === 'text/html') {
+        res.setHeader('Content-Type', 'text/html');
+      } else if (mime.getType(path) === 'application/javascript') {
+        res.setHeader('Content-Type', 'application/javascript');
+      }
+    }
+  }));
 }
+
+
 
 connectToDB()
 
@@ -51,7 +66,7 @@ cloudinary.config({
 
 // app.use(cors({origin: '*', credentials: true}))
 // app.use(cors({ origin: "http://localhost:3000", credentials: true }))
-app.use(cors({ origin: "https://ecommerce-mern-app-zeta.vercel.app/", credentials: true }))
+app.use(cors({ origin: "https://absolute-estore-zeta.vercel.app/", credentials: true }))
 
 
 
