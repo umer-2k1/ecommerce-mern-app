@@ -9,12 +9,12 @@ import { Provider } from 'react-redux';
 // import 'react-toastify/dist/ReactToastify.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-   <React>
+   <React.StrictMode>
     <Provider store={store} >
   
     <App />
     </Provider>
- </React> 
+ </React.StrictMode> 
 
 );
 
