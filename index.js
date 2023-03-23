@@ -42,7 +42,8 @@ cloudinary.config({
 
 
 // app.use(cors({origin: '*', credentials: true}))
-app.use(cors({ origin: "http://localhost:3000", credentials: true }))
+// app.use(cors({ origin: "http://localhost:3000", credentials: true }))
+app.use(cors({ origin: "https://ecommerce-mern-app-zeta.vercel.app/", credentials: true }))
 
 
 
