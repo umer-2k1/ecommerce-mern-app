@@ -1,0 +1,63 @@
+.order-table{
+    /* background-color: gray; */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border: none;
+}
+.MuiDataGrid-columnHeader{
+    background-color: #000000d7;
+    background-color: #2240af;
+    color: yellow;
+    color: white;
+    padding: 0.5vmax !important;
+}
+.MuiDataGrid-columnHeader svg{
+    /* background-color: rgb(44, 44, 44); */
+    color: white;
+}
+
+.order-heading{
+    text-align: center;
+    font-size: larger;
+    padding: 0.5vmax;
+    box-sizing: border-box;
+    color: #fff;
+    transition: all 0.5s;
+    background-color: rgb(44, 44, 44);
+}
+.MuiDataGrid-cell{
+
+    border: none;
+}
+.order-table a{
+    color: rgba(0, 0, 0,0.5);
+}
+.order-table a:hover{
+    color: blue;
+}
+
+
+@media screen and (max-width: 600px) {
+    .main-div {
+      padding: 0;
+      height: 93vh;
+    }
+  
+    .order-heading {
+      font: 400 2.2vmax "Roboto";
+      padding: 4vw;
+    }
+  
+    .order-table div {
+      font: 300 2vw "Roboto";
+    }
+  
+    .MuiDataGrid-columnHeader {
+      padding: 2px !important;
+    }
+  
+    .MuiDataGrid-columnHeader div {
+      font: 200 2vw "Roboto" !important;
+    }
+  }

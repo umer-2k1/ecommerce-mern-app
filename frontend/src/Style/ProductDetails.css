@@ -1,0 +1,14 @@
+.qty > button{
+
+    transition: all 0.5s;
+}
+/* Chrome, Safari, Edge, Opera */
+.special input::-webkit-outer-spin-button,
+.special input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.special input[type=number] {
+  -moz-appearance: textfield;
+}
