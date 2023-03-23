@@ -30,7 +30,7 @@ const Navbar = () => {
           </div>
 
           <div className="pl-7 md:font-bold">
-            <h2>Ecommerce</h2>
+            <h2>Absolute E-store</h2>
           </div>
         </div>
 
