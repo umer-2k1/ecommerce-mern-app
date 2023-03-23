@@ -5,11 +5,11 @@ import {
   EMPTY_CART,
   SAVE_ORDER_ITEM,
 } from '../constants/cartConstant';
-
+import { API_BASE_URL } from "../config/apiConfig";
 
 export const addCartItems = (id, quantity=1)=> async (dispatch, getState) => {
         
-        let link =`http://localhost:5000/api/product/getProductDet/${id}`
+        let link =`${API_BASE_URL}/api/product/getProductDet/${id}`
       const { data } = await axios.get(link);
       
         dispatch({

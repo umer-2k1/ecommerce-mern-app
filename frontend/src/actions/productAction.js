@@ -8,15 +8,19 @@ import {
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
 } from "../constants/productConstants";
+import { API_BASE_URL } from "../config/apiConfig";
+
+
+
 // keyword = ""
 export const getAllProducts = (keyword = "", currentPage =1, price=[0,25000], category, rating=0) => async (dispatch) => {
   try {
     dispatch({
       type: ALL_PRODUCT_REQUEST,
     });
-  let link = `http://localhost:5000/api/product/getproducts?keyword=${keyword}&page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&rattings[gte]=${rating}`;
+  let link = `${API_BASE_URL}/api/product/getproducts?keyword=${keyword}&page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&rattings[gte]=${rating}`;
   if (category) {
-link = `http://localhost:5000/api/product/getproducts?keyword=${keyword}&page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&category=${category}&rattings[gte]=${rating}`;
+link = `${API_BASE_URL}/api/product/getproducts?keyword=${keyword}&page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&category=${category}&rattings[gte]=${rating}`;
   }
     const { data } = await axios.get(link);
     
@@ -41,7 +45,7 @@ export const getProductDetails = (id)=> async (dispatch) => {
     dispatch({
       type: PRODUCT_DETAILS_REQUEST,
     });
-    const { data } = await axios.get(`http://localhost:5000/api/product/getProductDet/${id}`);
+    const { data } = await axios.get(`${API_BASE_URL}/api/product/getProductDet/${id}`);
     
       dispatch({
         type:  PRODUCT_DETAILS_SUCCESS,

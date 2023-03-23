@@ -6,7 +6,7 @@ import CheckoutSteps from '../OrdersPage/CheckoutSteps'
 import { useSelector, useDispatch} from 'react-redux'
 import { creatingOrders} from '../../actions/orderAction'
 import {emptyCart} from '../../actions/cartAction'
-
+import { API_BASE_URL } from '../../config/apiConfig';
 
 const Payment = () => {
   const publishableKey = "pk_test_51M3EDcLvaK7iIutswTMranEQXWPAQsPIMVfdTnppjJ82FMa4dQV3vg1ga1rLavLZ4f2bA0L34W89nuRXhLsak7DZ00LwvV86c8"
@@ -43,7 +43,7 @@ const order = {
       amount: Math.round(orderInfo.total * 100),
       token,
     }
-    let url = "http://localhost:5000/api/payment/process"
+    let url = `${API_BASE_URL}/api/payment/process`
         const response = await axios.post(url, data,
           // {token,
           // paymentAmount,},

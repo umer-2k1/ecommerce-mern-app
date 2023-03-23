@@ -17,13 +17,17 @@ import {
     
     CLEAR_ERRORS,
   } from "../constants/userConstant";
+  import { API_BASE_URL } from "../config/apiConfig";
+
+
+
 export const getLoginUser = (email, password) => async(dispatch) =>{
   try {
     dispatch({
       type: LOGIN_REQUEST,
     });
     const config = {headers: {'Content-Type': 'application/json'}}
-    const { data } = await axios.post(`http://localhost:5000/api/auth/loginUser`,
+    const { data } = await axios.post(`${API_BASE_URL}/api/auth/loginUser`,
     // { withCredentials: true },
     {email, password},
     {  withCredentials: true, credentials: 'include',},
@@ -47,7 +51,7 @@ export const registerNewUser = (userData) => async(dispatch)=>{
   try {
     dispatch({type: NEW_USER_REQUEST})
     const config = {headers: {'Content-Type': 'multipart/form-data'}}
-    let url = `http://localhost:5000/api/auth/newUser`
+    let url = `${API_BASE_URL}/api/auth/newUser`
     const {data} = await axios.post(url, userData, config )
     dispatch({
       type: NEW_USER_SUCCESS,
@@ -68,7 +72,7 @@ export const loadTheUser = () => async(dispatch) =>{
     dispatch({
       type: LOAD_USER_REQUEST,
     });
-    let link = `http://localhost:5000/api/auth/me`
+    let link = `${API_BASE_URL}/api/auth/me`
     const { data } = await axios.get(link,{  withCredentials: true});
     
       dispatch({
@@ -90,7 +94,7 @@ export const loadTheUser = () => async(dispatch) =>{
 export const logoutUser = () => async(dispatch) =>{
   try {
 
-    let link = `http://localhost:5000/api/auth/logoutUser`
+    let link = `${API_BASE_URL}/api/auth/logoutUser`
     // const { data } = await axios.get(link, {withCredentials:true});
   await axios.post(link,null, {withCredentials:true});
     

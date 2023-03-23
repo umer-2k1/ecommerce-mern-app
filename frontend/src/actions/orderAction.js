@@ -15,6 +15,7 @@ import {
 
     CLEAR_ERRORS,
 } from '../constants/orderConstant';
+import { API_BASE_URL } from "../config/apiConfig";
 
 // Creating Orders for the User
 export const creatingOrders  = (order) =>async(dispatch, getState)=>{
@@ -22,7 +23,7 @@ export const creatingOrders  = (order) =>async(dispatch, getState)=>{
     try {
         dispatch({type: CREATE_ORDER_REQUEST});
 
-        let link = 'http://localhost:5000/api/order/new'
+        let link = `${API_BASE_URL}/api/order/new`
         const config = {headers: {'Content-Type': 'application/json'}}
         const {data} = await axios.post(link, order, {  withCredentials: true, credentials: 'include',}, config)
 
@@ -46,7 +47,7 @@ export const myOrders  = () =>async(dispatch, getState)=>{
     try {
         dispatch({type: MY_ORDER_REQUEST});
 // {  withCredentials: true, credentials: 'include',}
-        let link = 'http://localhost:5000/api/order/myOrders'
+        let link = `${API_BASE_URL}/api/order/myOrders`
         const {data} = await axios.get(link,{  withCredentials: true, credentials: 'include',})
 
         dispatch({
@@ -70,7 +71,7 @@ export const orderDetails  = (id) =>async(dispatch, getState)=>{
     try {
         dispatch({type: ORDER_DETAIL_REQUEST});
 // {  withCredentials: true, credentials: 'include',}
-        let link = `http://localhost:5000/api/order/single/${id}`
+        let link = `${API_BASE_URL}/api/order/single/${id}`
         const {data} = await axios.get(link,{withCredentials:true})
 
         dispatch({
