@@ -25,12 +25,7 @@ connectToDB()
   //   res.sendFile(path.resolve(__dirname, 'frontend','build', 'index.html'))
   // })
 
-  if (process.env.NODE_ENV !== 'production') {
-    app.get('/*', (req,res)=>{
-    app.use(express.static(path.join(__dirname, './frontend','build')))
-    res.sendFile(path.join(__dirname, './frontend','build', 'index.html'))
-  })
-}
+
 app.use(cors({ origin: "https://absolute-estore-zeta.vercel.app/", credentials: true }))
 
 
@@ -73,6 +68,13 @@ app.use('/api/payment',paymentRoutes)
 //     res.sendFile(path.resolve(__dirname, '../ecommerce/build.index.html'))
 //   })
 // }
+
+app.use(express.static(path.join(__dirname, './frontend','build')))
+if (process.env.NODE_ENV !== 'production') {
+  app.get('/*', (req,res)=>{
+  res.sendFile(path.resolve(__dirname, './frontend','build', 'index.html'))
+})
+}
 
 app.listen(process.env.PORT, () => {
   console.log(`Example app listening at http://localhost:${BASE_URL} 🚀`)
