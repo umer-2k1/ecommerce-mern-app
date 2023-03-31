@@ -11,6 +11,7 @@ const userRoutes = require('./routes/userRoutes')
 const orderRoutes = require('./routes/orderRoutes')
 const paymentRoutes = require('./routes/paymentRoutes')
 const BASE_URL = 5000 || process.env.BASE_URL
+const path = require('path');
 
 dotnet.config()
 connectToDB()
