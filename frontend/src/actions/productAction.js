@@ -18,19 +18,17 @@ export const getAllProducts = (keyword = "", currentPage =1, price=[0,25000], ca
     dispatch({
       type: ALL_PRODUCT_REQUEST,
     });
-  let link = `${API_BASE_URL}/api/product/getproducts?keyword=${keyword}&page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&rattings[gte]=${rating}`;
-  if (category) {
-link = `${API_BASE_URL}/api/product/getproducts?keyword=${keyword}&page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&category=${category}&rattings[gte]=${rating}`;
-  }
-    const { data } = await axios.get(link);
+    let link = `${API_BASE_URL}/api/product/getproducts?keyword=${keyword}&page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&rattings[gte]=${rating}`;
+    if (category) {
+      link = `${API_BASE_URL}/api/product/getproducts?keyword=${keyword}&page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&category=${category}&rattings[gte]=${rating}`;
+    }
+    const response = await axios.get(link);
+    const data = response.data; // add a check to ensure that response has data property
     
-      dispatch({
-        type: ALL_PRODUCT_SUCCESS,
-        payload: data
-      })
-
-
-
+    dispatch({
+      type: ALL_PRODUCT_SUCCESS,
+      payload: data
+    });
   } catch (error) {
     dispatch({
       type: ALL_PRODUCT_FAIL,
@@ -39,21 +37,18 @@ link = `${API_BASE_URL}/api/product/getproducts?keyword=${keyword}&page=${curren
   }
 };
 
-
 export const getProductDetails = (id)=> async (dispatch) => {
   try {
     dispatch({
       type: PRODUCT_DETAILS_REQUEST,
     });
-    const { data } = await axios.get(`${API_BASE_URL}/api/product/getProductDet/${id}`);
+    const response = await axios.get(`${API_BASE_URL}/api/product/getProductDet/${id}`);
+    const data = response.data; // add a check to ensure that response has data property
     
-      dispatch({
-        type:  PRODUCT_DETAILS_SUCCESS,
-        payload: data
-      })
-
-
-
+    dispatch({
+      type:  PRODUCT_DETAILS_SUCCESS,
+      payload: data
+    });
   } catch (error) {
     dispatch({
       type: PRODUCT_DETAILS_FAIL,
@@ -62,10 +57,8 @@ export const getProductDetails = (id)=> async (dispatch) => {
   }
 };
 
-
-// ckearing all errors
 export const clearErrors = ()=> async (dispatch)=>{
     dispatch({
-        type: "CLEAR_ERRORS"
-    })
-}
+        type: CLEAR_ERRORS
+    });
+};

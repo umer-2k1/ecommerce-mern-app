@@ -10,27 +10,10 @@ const productRoutes = require('./routes/productRoutes')
 const userRoutes = require('./routes/userRoutes')
 const orderRoutes = require('./routes/orderRoutes')
 const paymentRoutes = require('./routes/paymentRoutes')
-const path = require('path')
-// const errorMiddleware = require('./middleware/error')
 const BASE_URL = 5000 || process.env.BASE_URL
-// const port = 5000 
-const app = express()
 
 dotnet.config()
 connectToDB()
-// config
-  // dotnet.config({ path: 'backend/config/config.env' });
-  // app.get('*', (req,res)=>{
-  //   app.use(express.static(path.resolve(__dirname, 'frontend','build')))
-  //   res.sendFile(path.resolve(__dirname, 'frontend','build', 'index.html'))
-  // })
-
-
-app.use(cors({ origin: "https://absolute-estore-zeta.vercel.app/", credentials: true }))
-
-
-
-
 
 // cloudinary
 cloudinary.config({
@@ -39,10 +22,8 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 })
 
-
-// app.use(cors({origin: '*', credentials: true}))
-// app.use(cors({ origin: "http://localhost:3000", credentials: true }))
-
+const app = express()
+app.use(cors({ origin: "*", credentials: true }))
 
 
 // to use req.body middleware must use
@@ -53,6 +34,13 @@ app.use(bodyParser.urlencoded({extended: true,limit: '50mb'}))
 app.use(fileUpload())
 
 
+if (process.env.NODE_ENV !== 'production') {
+  app.use(express.static(path.join(__dirname, './frontend','build')))
+  app.get('/*', (req,res)=>{
+  res.sendFile(path.resolve(__dirname, './frontend','build', 'index.html'))
+})
+}
+
 
 // getting all the provided routes
 // app.use('/api/productController',require ('./routes/productController'))
@@ -62,20 +50,9 @@ app.use('/api/order',orderRoutes)
 app.use('/api/payment',paymentRoutes)
 // app.use(errorMiddleware)
 
-// if (process.env.NORD_ENV ==='production') {
-//   app.use(express.static(path.join(__dirname, '../ecommerce/build')))
-//   app.get("*", (req,res)=>{
-//     res.sendFile(path.resolve(__dirname, '../ecommerce/build.index.html'))
-//   })
-// }
+// middle ware for error handling
 
-app.use(express.static(path.join(__dirname, './frontend','build')))
-if (process.env.NODE_ENV !== 'production') {
-  app.get('/*', (req,res)=>{
-  res.sendFile(path.resolve(__dirname, './frontend','build', 'index.html'))
-})
-}
 
-app.listen(process.env.PORT, () => {
-  console.log(`Example app listening at http://localhost:${BASE_URL} 🚀`)
+app.listen(BASE_URL, () => {
+  console.log(`Example app listening at http://localhost:${BASE_URL}`)
 })
