@@ -25,7 +25,7 @@ const registerUser =
 
     try {
       // check whether user with this email already exist
-      let newUser = await User.findOne({ email: req.body.email }, { timeout: 35000 });
+      let newUser = await User.findOne({ email: req.body.email });
       if (newUser) {
         return res
           .status(400)
@@ -71,7 +71,7 @@ const loginUser =
 
     try {
       // check whether user with this email user exist
-      let newUser = await User.findOne({ email: req.body.email }, { timeout: 35000 });
+      let newUser = await User.findOne({ email: req.body.email });
       if (!newUser) {
         return res.status(400).json({ error: "Please, provide correct credentials" });
       }
