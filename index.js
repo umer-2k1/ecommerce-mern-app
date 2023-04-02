@@ -10,7 +10,8 @@ const productRoutes = require('./routes/productRoutes')
 const userRoutes = require('./routes/userRoutes')
 const orderRoutes = require('./routes/orderRoutes')
 const paymentRoutes = require('./routes/paymentRoutes')
-const BASE_URL = 5000 || process.env.BASE_URL
+const BASE_URL = process.env.BASE_URL
+const PORT = 5000
 const path = require('path');
 
 dotnet.config()
@@ -61,6 +62,6 @@ app.get('*', function (req, res) {
 
 
 
-app.listen(BASE_URL, () => {
-  console.log(`Example app listening at http://localhost:${BASE_URL}`)
+app.listen(PORT, () => {
+  console.log(`Example app listening at ${BASE_URL}`)
 })
