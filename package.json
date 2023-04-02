@@ -4,7 +4,9 @@
   "description": "This is mern stack E commerce app",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm start\" \"npm run frontend\" "
   },
   "author": "Umer memon",
   "license": "ISC",

@@ -50,7 +50,7 @@ export const getLoginUser = (email, password) => async(dispatch) =>{
 export const registerNewUser = (userData) => async(dispatch)=>{
   try {
     dispatch({type: NEW_USER_REQUEST})
-    const config = {headers: {'Content-Type': 'multipart/form-data'}}
+    const config = {headers: {'Content-Type': 'multipart/form-data'}, withCredentials : true}
     let url = `${API_BASE_URL}/api/auth/newUser`
     const {data} = await axios.post(url, userData, config )
     dispatch({

@@ -35,13 +35,6 @@ app.use(bodyParser.urlencoded({extended: true,limit: '50mb'}))
 app.use(fileUpload())
 
 
-// if (process.env.NODE_ENV !== 'production') {
-//   app.use(express.static(path.join(__dirname, 'frontend','build')))
-//   app.get('*', (req,res)=>{
-//   res.sendFile(path.resolve(__dirname, 'frontend','build', 'index.html'))
-// })
-// }
-
 
 // getting all the provided routes
 // app.use('/api/productController',require ('./routes/productController'))
@@ -53,9 +46,19 @@ app.use('/api/payment',paymentRoutes)
 
 app.use(express.static(path.join(__dirname, './frontend/build')));
 
+// static files
+
+app.use(express.static(path.join(__dirname, './frontend/build')))
 app.get('*', function (req, res) {
-  res.sendFile(path.resolve(__dirname, 'frontend/build/index.html'));
+  res.sendFile(path.resolve(__dirname, './frontend/build/index.html'));
 });
+
+// if (process.env.NODE_ENV !== 'production') {
+//   app.get('*', (req,res)=>{
+//   res.sendFile(path.resolve(__dirname, 'frontend','build', 'index.html'))
+// })
+// }
+
 
 
 app.listen(BASE_URL, () => {
