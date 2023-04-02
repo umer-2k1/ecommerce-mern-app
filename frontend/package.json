@@ -1,7 +1,7 @@
 {
   "name": "ecommerce",
   "version": "0.1.0",
-  "proxy": "https://shy-teal-bison-slip.cyclic.app",
+  "proxy": "https://absolute-estore.cyclic.app/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
