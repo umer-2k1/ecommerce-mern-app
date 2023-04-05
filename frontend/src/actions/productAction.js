@@ -1,4 +1,3 @@
-import axios from "axios";
 import {
   ALL_PRODUCT_REQUEST,
   ALL_PRODUCT_SUCCESS,
@@ -9,26 +8,32 @@ import {
   PRODUCT_DETAILS_FAIL,
 } from "../constants/productConstants";
 import { API_BASE_URL } from "../config/apiConfig";
+import axios from "axios";
+console.log(API_BASE_URL)
 
-
-
-// keyword = ""
 export const getAllProducts = (keyword = "", currentPage =1, price=[0,25000], category, rating=0) => async (dispatch) => {
   try {
     dispatch({
       type: ALL_PRODUCT_REQUEST,
     });
-    let link = `${API_BASE_URL}/api/product/getproducts?keyword=${keyword}&page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&rattings[gte]=${rating}`;
-    if (category) {
-      link = `${API_BASE_URL}/api/product/getproducts?keyword=${keyword}&page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&category=${category}&rattings[gte]=${rating}`;
-    }
-    const response = await axios.get(link);
-    const data = response.data; // add a check to ensure that response has data property
+  let link = `${API_BASE_URL}/api/product/getproducts`;
+
+
+  // let link = `${API_BASE_URL}/api/product/getproducts?page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&rattings[gte]=${rating}`;
+
+  // if (category>0 || keyword.length>0) {
+  //  link = `${API_BASE_URL}/api/product/getproducts?page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&rattings[gte]=${JSON.stringify(rating)}`;
     
-    dispatch({
-      type: ALL_PRODUCT_SUCCESS,
-      payload: data
-    });
+  // }
+    const { data } = await axios.get(link);
+    console.log("data: ", data);
+      dispatch({
+        type: ALL_PRODUCT_SUCCESS,
+        payload: data
+      })
+
+
+
   } catch (error) {
     dispatch({
       type: ALL_PRODUCT_FAIL,
@@ -37,18 +42,56 @@ export const getAllProducts = (keyword = "", currentPage =1, price=[0,25000], ca
   }
 };
 
+
+
+
+
+
+// export const getAllProducts = (keyword = "", currentPage =1, price=[0,25000], category, rating=0) => async (dispatch) => {
+//   try {
+//     dispatch({
+//       type: ALL_PRODUCT_REQUEST,
+//     });
+//   // let link = `${API_BASE_URL}/api/product/getproducts`;
+
+
+//   let link = `${API_BASE_URL}/api/product/getproducts?keyword=${keyword}&page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&rattings[gte]=${rating}`;
+
+//   if (category) {
+// link = `${API_BASE_URL}/api/product/getproducts?keyword=${keyword}&page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&category=${category}&rattings[gte]=${rating}`;
+//   }
+//     const { data } = await axios.get(link);
+//     console.log("data: ", data);
+//       dispatch({
+//         type: ALL_PRODUCT_SUCCESS,
+//         payload: data
+//       })
+
+
+
+//   } catch (error) {
+//     dispatch({
+//       type: ALL_PRODUCT_FAIL,
+//       payload: error.response.data.message,
+//     });
+//   }
+// };
+
+
 export const getProductDetails = (id)=> async (dispatch) => {
   try {
     dispatch({
       type: PRODUCT_DETAILS_REQUEST,
     });
-    const response = await axios.get(`${API_BASE_URL}/api/product/getProductDet/${id}`);
-    const data = response.data; // add a check to ensure that response has data property
+    const { data } = await axios.get(`${API_BASE_URL}/api/product/getProductDet/${id}`);
     
-    dispatch({
-      type:  PRODUCT_DETAILS_SUCCESS,
-      payload: data
-    });
+      dispatch({
+        type:  PRODUCT_DETAILS_SUCCESS,
+        payload: data
+      })
+
+
+
   } catch (error) {
     dispatch({
       type: PRODUCT_DETAILS_FAIL,
@@ -57,8 +100,70 @@ export const getProductDetails = (id)=> async (dispatch) => {
   }
 };
 
+
+// ckearing all errors
 export const clearErrors = ()=> async (dispatch)=>{
     dispatch({
-        type: CLEAR_ERRORS
-    });
-};
+        type: "CLEAR_ERRORS"
+    })
+}
+
+
+
+
+// export const getAllProducts = (keyword = "", currentPage =1, price=[0,25000], category, rating=0) => async (dispatch) => {
+//   try {
+//     dispatch({
+//       type: ALL_PRODUCT_REQUEST,
+//     });
+//   let link = `${API_BASE_URL}/api/product/getproducts?keyword=${keyword}&page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&rattings[gte]=${rating}`;
+//   if (category) {
+// link = `${API_BASE_URL}/api/product/getproducts?keyword=${keyword}&page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&category=${category}&rattings[gte]=${rating}`;
+//   }
+//     const { data } = await axios.get(link);
+    
+//       dispatch({
+//         type: ALL_PRODUCT_SUCCESS,
+//         payload: data
+//       })
+
+
+
+//   } catch (error) {
+//     dispatch({
+//       type: ALL_PRODUCT_FAIL,
+//       payload: error.response.data.message,
+//     });
+//   }
+// };
+
+
+// export const getProductDetails = (id)=> async (dispatch) => {
+//   try {
+//     dispatch({
+//       type: PRODUCT_DETAILS_REQUEST,
+//     });
+//     const { data } = await axios.get(`${API_BASE_URL}/api/product/getProductDet/${id}`);
+    
+//       dispatch({
+//         type:  PRODUCT_DETAILS_SUCCESS,
+//         payload: data
+//       })
+
+
+
+//   } catch (error) {
+//     dispatch({
+//       type: PRODUCT_DETAILS_FAIL,
+//       payload: error.response.data.message,
+//     });
+//   }
+// };
+
+
+// // ckearing all errors
+// export const clearErrors = ()=> async (dispatch)=>{
+//     dispatch({
+//         type: "CLEAR_ERRORS"
+//     })
+// }
