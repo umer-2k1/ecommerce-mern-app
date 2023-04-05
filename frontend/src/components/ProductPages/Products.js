@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {getAllProducts, clearErrors} from '../../actions/productAction'
 import { useSelector, useDispatch } from 'react-redux'
-// import ReactStars from "react-rating-stars-component";
+import ReactStars from "react-rating-stars-component";
 import "../../Style/ProductCard.css";
 import Loader from '../../layout/Loader';
 import {useParams } from 'react-router-dom';
@@ -27,7 +27,7 @@ const Products = () => {
     const[currentPage, setCurrentPage] = useState(0)
     const[price, setPrice] = useState([0,25000])
     const[category, setCategory] = useState('')
-    const[rating, setRating] = useState(0)
+    const[rating, setRating] = useState("0")
     const[clearfilters, setClearfilters] = useState("")
 
 
@@ -58,8 +58,8 @@ const Products = () => {
       }
         dispatch(getAllProducts(keyword, currentPage,price, category, rating))
 
-        console.log(products)
-      },[dispatch, keyword,currentPage,price,category, rating]);
+        console.log("products Page: ",products)
+      },[dispatch, keyword,currentPage,price,category, rating, error]);
 
   let count = filteredProducts
   return (

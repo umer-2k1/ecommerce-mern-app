@@ -9,14 +9,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 
-
-  // https://rukminim1.flixcart.com/image/832/832/kqco5u80/shoe/k/d/h/9-1732-shoes-crew-white-original-imag4dhcrwg6xg8p.jpeg?q=70
-
-  // https://rukminim1.flixcart.com/image/416/416/kp2y2kw0/computer/y/0/c/na-thin-and-light-laptop-asus-original-imag3ebnzawky4kn.jpeg?q=70
-
-  // https://rukminim1.flixcart.com/image/416/416/l0tweq80/mobile/w/r/t/-original-imagcgtgwg5taegn.jpeg?q=70
-  
-
 const Home = () => {
   const notify = () => toast.error("Wow so easy!");
     const dispatch = useDispatch()
@@ -26,7 +18,7 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(getAllProducts())
-        // console.log(products)
+        console.log("Home Page Products: ",products)
       },[dispatch]);
   return (
     <>

@@ -4,15 +4,13 @@ const ApiFeatures = require('../utils/apiFeatures')
 // const ErrorHandler = require('../utils/errorHandling')
 // const tryCatchError = require('../middleware/tryCatchError')
 // Adding Products by POST request: 'api/addproducts
-
+// console.log(ApiFeatures)
 
 const addProducts = async(req,res,next)=>{
     try {
       req.body.user = req.newUser.id
         const prod = await Products.create(req.body);
-    
-        await prod.save();
-    
+  
         res.status(200).json({ success: true, product: prod });
       } catch (error) {
         console.error(error);
@@ -20,21 +18,45 @@ const addProducts = async(req,res,next)=>{
       }
 }
 
+
 const getAllProducts = async(req,res,next)=>{
-    try {
-        const productCount = await Products.countDocuments()
-        const resultPerPage = 4
-        const apifeatures = new ApiFeatures(Products.find(), req.query).search().filter()
-        let prod = await apifeatures.query
-        let filteredProducts = prod.length
-        apifeatures.pagination(resultPerPage)
-        prod = await apifeatures.query.clone()
-        res.status(200).json({ success: true, products: prod, productCount, resultPerPage,filteredProducts});
-      } catch (error) {
-        console.error(error);
-        res.status(500).json("Internal Server error occured");
-      }
+  try {
+      const productCount = await Products.countDocuments()
+      const resultPerPage = 2
+      const apifeatures = new ApiFeatures(Products.find(), req.query)
+      .search()
+      .filter()
+
+      let prod = await apifeatures.query
+      let filteredProducts = prod.length
+      apifeatures.pagination(resultPerPage)
+      prod = await apifeatures.query.clone()
+      // res.status(200).json({ success: true, products: prod});
+      res.status(200).json({ success: true, products: prod, productCount, resultPerPage,filteredProducts});
+    } catch (error) {
+      console.error(error);
+      res.status(500).json("Internal Server error occured");
+    }
 }
+
+
+// const getAllProducts = async(req,res,next)=>{
+//   try {
+//       const productCount = await Products.countDocuments()
+//       const resultPerPage = 4
+//       // const apifeatures = new ApiFeatures(Products.findOne(), req.query).search().filter()
+//       const apifeatures = new ApiFeatures(Products.find({keyword:req.query})).search().filter()
+
+//       let prod = await apifeatures.query
+//       let filteredProducts = prod.length
+//       apifeatures.pagination(resultPerPage)
+//       prod = await apifeatures.query.clone()
+//       res.status(200).json({ success: true, products: prod, productCount, resultPerPage,filteredProducts});
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).json("Internal Server error occured");
+//     }
+// }
 
 const updateProducts = async(req,res,next)=>{
     try {

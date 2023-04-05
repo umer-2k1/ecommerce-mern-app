@@ -84,10 +84,6 @@ useEffect(() => {
     <div>
       <img className="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company"/>
       <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">SignUp for an account</h2>
-      {/* <p className="mt-2 text-center text-sm text-gray-600">
-        Or
-        <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">start your 14-day free trial</a>
-      </p> */}
     </div>
     <form onSubmit={registrationSubmit} className="mt-8 space-y-7"  method="POST">
       <input type="hidden" name="remember" value="true"/>
@@ -95,7 +91,7 @@ useEffect(() => {
 
       <div className=''>
           <label htmlFor="name" className="sr-only">Name</label>
-          <input id="password" onChange={getSignUpData} value={signUp.name} name="name" type="type" required className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Name"/>
+          <input id="name" onChange={getSignUpData} value={signUp.name} name="name" type="type" required className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Name"/>
         </div>
 
         <div className=''>

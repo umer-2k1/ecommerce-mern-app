@@ -71,22 +71,28 @@ const loginUser =
 
     try {
       // check whether user with this email user exist
-      let newUser = await User.findOne({ email: req.body.email });
+      const email = req.body.email;
+      const password = req.body.password;
+      if (!email || !password) {
+        return res.status(400).json({ error: "Please provide email and password" });
+      }
+      let newUser = await User.findOne({ email });
+      console.log("newUser: ", newUser)
       if (!newUser) {
         return res.status(400).json({ error: "Please, provide correct credentials" });
       }
-      // bcrypt.compare() compare intenally all the hash passwords and retun true or false it takes user-provide-passowrd, password-stored-in-Database
-
-      const comparePassword = await bcrypt.compare(
-        req.body.password,
-        newUser.password
-      );
+      console.log("Password body before check: ", password);
+      console.log("newUser body before check: ", newUser.password);
+      const comparePassword = await bcrypt.compare(password, newUser.password);
+      console.log("Password body after check: ", password);
+      console.log("newUser body after check: ", newUser.password);
 
       if (!comparePassword) {
-        res.status(400).json({ error: "Please, provide correct credentials" });
+        return res.status(400).json({ error: "Please, provide correct credentials" });
       }
 
       sendToken(newUser, 200, res);
+
 
     } catch (error) {
       console.error(error);
