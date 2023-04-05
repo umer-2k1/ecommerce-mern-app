@@ -22,7 +22,7 @@ const addProducts = async(req,res,next)=>{
 const getAllProducts = async(req,res,next)=>{
   try {
       const productCount = await Products.countDocuments()
-      const resultPerPage = 2
+      const resultPerPage = 4
       const apifeatures = new ApiFeatures(Products.find(), req.query)
       .search()
       .filter()
