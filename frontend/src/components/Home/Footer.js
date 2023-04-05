@@ -79,6 +79,8 @@ const Footer = () => {
       </div>
     </div>
   </div>
+  {/* #112C3E */}
+  {/* #0a1435 */}
   <div className=" bg-[#0a1435]">
     <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
       <p className="text-white hover:text-gray-400 text-sm text-center sm:text-left">© 2023 Ecommerce —

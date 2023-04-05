@@ -1,6 +1,8 @@
 import './App.css'
 import Home from "./components/Home/Home";
 import Footer from "./components/Home/Footer";
+import AboutUs from "./components/Home/AboutUs";
+import ContactUs from './components/Home/ContactUs';
 import Navbar from "./components/Navbar";
 import ProductDetails from "./components/ProductPages/ProductDetails";
 import Products from "./components/ProductPages/Products";
@@ -13,7 +15,6 @@ import { useSelector,useDispatch } from "react-redux";
 import UserOptions from "./components/userPage/UserOptions";
 import UserProfile from "./components/userPage/UserProfile";
 import Cart from "./components/CartPage/Cart";
-import Demo from './components/ProductPages/Demo'
 import Orders from "./components/OrdersPage/Orders";
 import OrderConfirm from "./components/OrdersPage/OrderConfirm";
 import Payment from "./components/PaymentPage/Payment";
@@ -60,6 +61,8 @@ useEffect(() => {
 <Routes>
 
 <Route exact path ="/" element = {  <Home /> } />
+<Route exact path ="/about-us" element = {  <AboutUs /> } />
+<Route exact path ="/contact-us" element = {  <ContactUs /> } />
 <Route exact path ="/product/getProductDet/:id" element = {  <ProductDetails /> } />
 <Route exact path ="/product/getproducts" element = {  <Products /> } />
 <Route  path ="/product/getproducts/:keyword" element = {  <Products /> } />
@@ -92,7 +95,6 @@ useEffect(() => {
 
 
 
-<Route  exact path ="/demo" element = {  <Demo /> } />
 <Route  exact path ="*" element = {  <ErrorPage /> } />
 <Route  exact path ="/privacy-policy" element = {  <PrivacyPolicy /> } />
 <Route  exact path ="/terms-and-condition" element = {  <Terms_Condition /> } />

@@ -38,8 +38,10 @@ const Navbar = () => {
           <ul className=" flex flex-row hidden md:inline-flex  items-center justify-end  font-bold space-x-13 md:space-x-7">
             <Link to={'/'}><li className="cursor-pointer hover:text-blue-600">Home</li></Link>
             <Link to={'/product/getproducts'}><li className="cursor-pointer hover:text-blue-600">Products</li></Link>
-            <Link to={'/demo'}><li className="cursor-pointer hover:text-blue-600">About</li></Link>
-            <li className="cursor-pointer hover:text-blue-600">Contact</li>
+            <Link to={'/about-us'}><li className="cursor-pointer hover:text-blue-600">About</li></Link>
+            <Link to={'/contact-us'}>
+          <li className="cursor-pointer hover:text-blue-600">Contact</li>
+            </Link>
             
             {isAuthenticate === false?
             <Link to={'/auth/loginUser'} className="cursor-pointer hover:text-blue-600">

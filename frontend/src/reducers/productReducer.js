@@ -8,8 +8,6 @@ import {
   PRODUCT_DETAILS_FAIL,
 } from "../constants/productConstants";
 
-// import React from "react";
-// import { createReducer } from "@reduxjs/toolkit";
 
 
 export const  productReducer = (state = { product: [] }, action) => {
@@ -44,43 +42,6 @@ export const  productReducer = (state = { product: [] }, action) => {
       return state;
   }
 };
-
-// export const productReducer = createReducer(initialState = { product: [] } ,{
-//   ALL_PRODUCT_REQUEST: (state) =>{
-//     return {
-//     loading: true,
-//     products: [],
-// }},
-
-// ALL_PRODUCT_SUCCESS: (state, action) =>{
-//   return {
-//     loading: false,
-//     products: action.payload.products,
-//     productCount: action.payload.productCount,
-// }},
-// ALL_PRODUCT_FAIL: (state,action) =>{
-//   return {
-//     loading: false,
-//     error: action.payload,
-
-// }},
-
-// CLEAR_ERRORS: (state,action) =>{
-//   return {
-//     ...initialState,
-//     error: null,
-// }},
-
-
-// })
-
-
-
-
-
-
-
-
 
 
 
