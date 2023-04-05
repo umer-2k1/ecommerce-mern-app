@@ -1,4 +1,4 @@
-// import axios from "axios";
+import './App.css'
 import Home from "./components/Home/Home";
 import Footer from "./components/Home/Footer";
 import Navbar from "./components/Navbar";
@@ -23,6 +23,8 @@ import OrderDetails from "./components/OrdersPage/OrderDetails";
 import ScrollToTop from "./layout/ScrollToTop";
 import ErrorPage from "./components/Routes/ErrorPage";
 import ProtectedRoute from "./components/Routes/ProtectedRoute";
+import PrivacyPolicy from "./components/PolicyPage/PrivacyPolicy";
+import Terms_Condition from "./components/PolicyPage/Terms_Condition";
 
 
 import {
@@ -90,9 +92,10 @@ useEffect(() => {
 
 
 
-
 <Route  exact path ="/demo" element = {  <Demo /> } />
 <Route  exact path ="*" element = {  <ErrorPage /> } />
+<Route  exact path ="/privacy-policy" element = {  <PrivacyPolicy /> } />
+<Route  exact path ="/terms-and-condition" element = {  <Terms_Condition /> } />
 
 </Routes>
 
