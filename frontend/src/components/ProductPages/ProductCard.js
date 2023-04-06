@@ -22,7 +22,7 @@ function ProductCard({ prod }) {
       {/* <section className="text-gray-600 body-font">
         <div className="container py-24 mx-auto">
           <div className="flex md:items-center md:justify-start justify-center  flex-wrap -m-4"> */}
-            <Link  to={`/product/getProductDet/${prod._id}`}  className="card mb-6 h-[72vh] mx-12 cursor-pointer lg:w-1/5 md:w-1/3  w-2/3" >
+            <Link  to={`/product/getProductDet/${prod._id}`}  className="card mb-6 h-[72vh] mx-12 cursor-pointer lg:w-[23%] md:w-1/2  w-2/3" >
               <div className="relative w-max-sm overflow-hidden">
 <img  alt="ecommerce" className="w-full h-[38vh]"  src={prod.images[0].url}/>
               </div>

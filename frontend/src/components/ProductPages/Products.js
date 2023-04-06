@@ -75,10 +75,10 @@ const Products = () => {
         {/* search-row */}
         
 
-<div className="two-colums-div flex flex-row py-12">
+<div className="two-colums-div flex md:flex-row flex-col py-12">
 
 
-<div className="filters-div w-1/5 mx-2 ">
+<div className="filters-div md:w-1/5 md:mx-4 mx-auto flex-col w-[70%]">
 
 <div className="search-row border-2 h-auto p-7">
 
@@ -157,10 +157,10 @@ step={1}
 {/* filters-div */}
 
 
-<div className="product-div w-4/5">
+<div className="product-div flex flex-col md:w-4/5 w-full">
 <section className="text-gray-600 body-font">
         <div className="container py-4 mx-auto">
-          <div className="flex md:items-center md:justify-start justify-center  flex-wrap -mx-8">
+          <div className="flex md:items-center justify-center items-start  flex-wrap -mx-8">
 {products && products.map((elem) => (
    <ProductCard prod = {elem} key = {elem._id}/>
 ))}

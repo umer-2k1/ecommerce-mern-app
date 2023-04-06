@@ -1,0 +1,151 @@
+ 
+  .contain {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    background-color: #eee;
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+  }
+  
+  div.submit-form {
+    background-color: #eee;
+  }
+  .contact-wrapper {
+    margin: auto 0;
+  }
+  
+  .submit-btn {
+    float: left;
+  }
+  .reset-btn {
+    float: right;
+  }
+  
+  .submit-form-headline:after {
+    content: "";
+    display: block;
+    width: 10%;
+    padding-top: 10px;
+    border-bottom: 3px solid #2240AF;
+  }
+  
+  .highlight-text {
+    color: #2240AF;
+  }
+  
+  .hightlight-contact-info {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.5;
+  }
+  
+  .highlight-text-grey {
+    font-weight: 500;
+  }
+  
+  .email-info {
+      margin-top: 20px;
+  }
+ 
+  
+  .required-input {
+    color: black;
+  }
+  @media (min-width: 600px) {
+    .contain {
+      padding: 0;
+    }
+  }
+  
+  h3,
+  ul {
+    margin: 0;
+  }
+  
+  h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .submit-form-input:focus,
+  textarea:focus{
+    outline: 1.5px solid #2240AF;
+  }
+  
+  .submit-form-input,
+  textarea {
+    width: 100%;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+  }
+  
+  .wrapper > * {
+    padding: 1em;
+  }
+  @media (min-width: 700px) {
+    .wrapper {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+    }
+    .wrapper > * {
+      padding: 2em 2em;
+    }
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .contacts {
+    color: #212d31;
+  }
+  
+  .submit-form {
+    background: #fff;
+  }
+  
+  submit-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+  submit-form label {
+    display: block;
+  }
+  submit-form p {
+    margin: 0;
+  }
+  
+  .full-width {
+    grid-column: 1 / 3;
+  }
+  
+  .reset-btn,
+  .submit-btn,
+  .submit-form-input,
+  textarea {
+    padding: 1em;
+  }
+  
+  .reset-btn, .submit-btn {
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #2240AF;
+    color: #2240AF;
+    border-radius: 15px;
+    padding: 5px 20px;
+    text-transsubmit-form: uppercase;
+  }
+  .reset-btn:hover, .submit-btn:hover,
+  .reset-btn:focus , .submit-btn:focus{
+    background: #2240AF;
+    outline: 0;
+    color: #eee;
+  }
+  .error {
+    color: #2240AF;
+  }
+  
+  
