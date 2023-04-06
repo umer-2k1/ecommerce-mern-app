@@ -86,9 +86,9 @@ const Navbar = () => {
             <Link to={'/product/getproducts'} onClick={()=> setIsmenu(false)} className="font-bold cursor-pointer hover:text-blue-600">
               Products</Link>
 
-            <Link onClick={()=> setIsmenu(false)} className="font-bold cursor-pointer hover:text-blue-600">About</Link>
+            <Link to={'/about-us'} onClick={()=> setIsmenu(false)} className="font-bold cursor-pointer hover:text-blue-600">About</Link>
 
-            <Link onClick={()=> setIsmenu(false)} className="font-bold cursor-pointer hover:text-blue-600">Contact</Link>
+            <Link to={'/contact-us'} onClick={()=> setIsmenu(false)} className="font-bold cursor-pointer hover:text-blue-600">Contact</Link>
 
             <Link to={'/auth/loginUser'} onClick={()=> setIsmenu(false)} className="font-bold cursor-pointer hover:text-blue-600">Login</Link>
 
