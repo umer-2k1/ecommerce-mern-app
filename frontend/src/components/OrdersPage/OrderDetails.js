@@ -2,10 +2,12 @@ import React,{useState, useEffect} from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch} from 'react-redux'
 import { orderDetails, clearErrors} from '../../actions/orderAction'
-
 import Loader from '../../layout/Loader';
 import {MdMarkEmailUnread} from 'react-icons/md'
 import Typography from '@mui/material/Typography';
+import { ToastContainer, toast } from 'react-toastify';
+
+
 const OrderDetails = () => {
     let history = useNavigate();
     let {id} = useParams();
@@ -13,8 +15,9 @@ const OrderDetails = () => {
     const dispatch = useDispatch()
     const {newUser} = useSelector((state)=> state.user)
     const {loading,order} = useSelector((state)=> state.orderDetail)
-const btnHandler = ()=>{
-  alert("New Feaure will be added soon")
+
+const trackOrderHandler = ()=>{
+  toast.info("Tracking your order functionality will be implemented in the near future!")
 }
 
 
@@ -30,7 +33,7 @@ useEffect(() => {
       // }
       dispatch(orderDetails(id))
       console.log(order)
-    },[dispatch, id]);
+    },[dispatch, id, toast]);
 
 
   return (
@@ -38,6 +41,18 @@ useEffect(() => {
 { loading? (<Loader/>):
 (
 <>
+<ToastContainer 
+    position="top-right"
+    autoClose={1000}
+    hideProgressBar={false}
+    newestOnTop
+    closeOnClick
+    rtl={false}
+    pauseOnFocusLoss={false}
+    draggable
+    pauseOnHover={false}
+    theme="dark"
+    />
 
 {order&&    <div className="container mx-6 my-8">
       <header>My Orders / Tracking </header>
@@ -111,7 +126,7 @@ useEffect(() => {
     
 
       <div class="flex">
-          <button onClick={btnHandler} class="flex my-4 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Track Order</button>
+          <button onClick={trackOrderHandler} class="flex my-4 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Track Order</button>
         </div>
 
     </div>}
