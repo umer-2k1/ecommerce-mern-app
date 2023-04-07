@@ -48,6 +48,15 @@ const ProductDetails = () => {
       toast.success("Item Added to Cart")
     }
 
+    
+    const buyNowHandler = ()=>{
+      dispatch(addCartItems(id, newQty))
+      let currentUrl = location.pathname
+      console.log(currentUrl)
+      let updatedUrl = currentUrl.replace(currentUrl, '/orders')
+      navigate(updatedUrl)
+      toast.success("Item Added to Cart")
+    }
 
 
     useEffect(() => {
@@ -157,7 +166,7 @@ const ProductDetails = () => {
 <hr />
         <div className=" button my-5 ">
 {/* <button disabled={product.availableQty<1? true:false} onClick={buyNowHandler} className='px-1 py-1 w-28 md:w-36 text-white md:px-2 md:py-2 bg-[#E86229] rounded-md disabled:cursor-not-allowed disabled:opacity-60' type="submit">Buy Now</button> */}
-<button className='px-1 py-1 w-28 md:w-36 text-white md:px-2 md:py-2 bg-[#705246]' type="submit">Buy Now</button>
+<button onClick={buyNowHandler} className='px-1 py-1 w-28 md:w-36 text-white md:px-2 md:py-2 bg-[#705246]' type="submit">Buy Now</button>
 
 
 
