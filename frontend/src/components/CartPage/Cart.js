@@ -50,7 +50,12 @@ const Cart = () => {
   
   (
     <>
-<h3  className='border-b-2 px-3 pb-5 border-gray-100 md:text-4xl text-2xl m-6'>Shopping Cart</h3>
+<h3  className='border-b-2 px-3 pb-5 border-gray-100 md:text-4xl text-2xl m-6'>You've added 
+<span className='text-[#3C76D2] px-2 font-bold' >{cartItems.length}</span>
+<span>
+{cartItems.length > 1? "items ": "item "}
+</span>
+to your cart</h3>
     
      <div  className="bg-gray-50 shadow-lg cart-div flex md:flex-row flex-col w-full h-full  md:space-x-11 md:m-7 my-7 space-x-auto justify-center md:justify-start items-center md:items-start">
 

@@ -2,14 +2,15 @@ import React, {useEffect, useState} from 'react'
 import {getProductDetails, clearErrors} from '../../actions/productAction'
 import {addCartItems} from '../../actions/cartAction'
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import "../../Style/ProductDetails.css";
 import ReactStars from "react-rating-stars-component";
 import ReviewCard from './ReviewCard';
 import Loader from '../../layout/Loader';
 import { ToastContainer, toast } from 'react-toastify';
 const ProductDetails = () => {
- 
+    const navigate = useNavigate()
+    const location = useLocation()
     const dispatch = useDispatch()
     let {id} = useParams()
     const {loading, product, error} = useSelector((state)=> state.productDetails)
@@ -46,6 +47,8 @@ const ProductDetails = () => {
       dispatch(addCartItems(id, newQty))
       toast.success("Item Added to Cart")
     }
+
+
 
     useEffect(() => {
       if (error) {
@@ -153,7 +156,8 @@ const ProductDetails = () => {
         </div>
 <hr />
         <div className=" button my-5 ">
-            <button className='px-1 py-1 w-28 md:w-36 text-white md:px-2 md:py-2 bg-[#E86229] rounded-md ' type="submit">Buy Now</button>
+{/* <button disabled={product.availableQty<1? true:false} onClick={buyNowHandler} className='px-1 py-1 w-28 md:w-36 text-white md:px-2 md:py-2 bg-[#E86229] rounded-md disabled:cursor-not-allowed disabled:opacity-60' type="submit">Buy Now</button> */}
+<button className='px-1 py-1 w-28 md:w-36 text-white md:px-2 md:py-2 bg-[#705246]' type="submit">Buy Now</button>
 
 
 

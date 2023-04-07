@@ -136,7 +136,7 @@
     color: #2240AF;
     border-radius: 15px;
     padding: 5px 20px;
-    text-transsubmit-form: uppercase;
+    text-transform: uppercase;
   }
   .reset-btn:hover, .submit-btn:hover,
   .reset-btn:focus , .submit-btn:focus{
