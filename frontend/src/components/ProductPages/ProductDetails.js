@@ -57,7 +57,10 @@ const ProductDetails = () => {
       navigate(updatedUrl)
       toast.success("Item Added to Cart")
     }
-
+    
+    const submitReviewHandler = ()=>{
+    toast.info("The Submit Reviews functionality will be implemented in the near future!")
+    }
 
     useEffect(() => {
       if (error) {
@@ -184,7 +187,7 @@ const ProductDetails = () => {
         </div>
 
         <div className="submit-reviews">
-        <button className='w-40 md:w-56 md:text-xl text-sm md:py-3 md:px-7 py-2 px-3 md:mt-7 mt-3 rounded-[30px] bg-green-700 text-white hover:scale-105' type="submit">Submit Rewiews</button>
+        <button onClick={submitReviewHandler} className='w-40 md:w-56 md:text-xl text-sm md:py-3 md:px-7 py-2 px-3 md:mt-7 mt-3 rounded-[30px] bg-green-700 text-white hover:scale-105' type="submit">Submit Rewiews</button>
         </div>
 
         </div>
