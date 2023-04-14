@@ -178,7 +178,7 @@ viewBox="0 0 48 48">
 <hr />
         <div className=" button my-5 ">
 {/* <button disabled={product.availableQty<1? true:false} onClick={buyNowHandler} className='px-1 py-1 w-28 md:w-36 text-white md:px-2 md:py-2 bg-[#E86229] rounded-md disabled:cursor-not-allowed disabled:opacity-60' type="submit">Buy Now</button> */}
-<button onClick={buyNowHandler} className='px-1 py-1 w-28 md:w-36 text-white md:px-2 md:py-2 bg-[#705246]' type="submit">Buy Now</button>
+<button onClick={buyNowHandler} className='px-1 py-1 w-28 md:w-36 text-white md:px-2 md:py-2 bg-[#E86229] rounded-md' type="submit">Buy Now</button>
 
 
 
