@@ -5,9 +5,11 @@ import "../../Style/Home.css";
 import Banner from '../../images/2.png'
 import ProductCard from '../ProductPages/ProductCard';
 import Loader from '../../layout/Loader';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
+import ToastAlert from '../../layout/ToastAlert';
+
 
 const Home = () => {
   const notify = () => toast.error("Wow so easy!");
@@ -24,18 +26,8 @@ const Home = () => {
     <>
     {loading ? (<Loader/>) : (
       <>
-      <ToastContainer 
-    position="top-right"
-    autoClose={1000}
-    hideProgressBar={false}
-    newestOnTop
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss={false}
-    draggable
-    pauseOnHover={false}
-    theme="dark"
-    />
+      
+      <ToastAlert/>
 
       <div className='md:m-auto px-[35px]  bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200'>
 

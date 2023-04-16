@@ -7,9 +7,9 @@ import "../../Style/ProductDetails.css";
 import ReactStars from "react-rating-stars-component";
 import ReviewCard from './ReviewCard';
 import Loader from '../../layout/Loader';
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 import { formatNumberWithCommas } from '../../utility/utilsFunction';
-
+import ToastAlert from '../../layout/ToastAlert';
 
 
 const ProductDetails = () => {
@@ -84,18 +84,8 @@ const ProductDetails = () => {
 
     (
       <>
-      <ToastContainer 
-    position="top-right"
-    autoClose={1000}
-    hideProgressBar={false}
-    newestOnTop
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss={false}
-    draggable
-    pauseOnHover={false}
-    theme="dark"
-    />
+      
+      <ToastAlert/>
 
       <section className="text-gray-700 body-font overflow-hidden bg-white">
   <div className="container px-5 py-16 mx-auto">
