@@ -2,6 +2,7 @@ import React from 'react'
 import { MdOutlineDone } from "react-icons/md";
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom'
+import { formatNumberWithCommas } from '../../utility/utilsFunction';
 
 const Cart_Item = ({addedItems,deleteItem,increaseQuantity,decreaseQuantity}) => {
   return (
@@ -39,7 +40,7 @@ const Cart_Item = ({addedItems,deleteItem,increaseQuantity,decreaseQuantity}) =>
 
 <div className="prize-remove space-y-9 ">
 <div className="prize">
-    <Typography><b>Rs: {addedItems.prize}</b></Typography>
+<Typography><b>Rs: {formatNumberWithCommas(addedItems.prize)}</b></Typography>
 </div>
 
 <div className="">
