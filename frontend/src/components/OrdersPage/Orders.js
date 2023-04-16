@@ -228,35 +228,25 @@ const submitShippingDetails = (e)=>{
 
 
 
-                <div className="flex items-center mt-4">
-                  <label className="flex items-center text-sm group text-heading">
-                    <input
-                      type="checkbox"
-                      className="w-5 h-5 border border-gray-300 rounded focus:outline-none focus:ring-1"
-                    />
-                    <span className="ml-2">
-                      Save this information htmlFor next time
-                    </span>
-                  </label>
-                </div>
+                
                 <div className="relative pt-3 xl:pt-6">
                   <label
                     htmlFor="note"
                     className="block mb-3 text-sm font-semibold text-gray-500"
                   >
                     {" "}
-                    Notes (Optional)
+                    Message (Optional)
                   </label>
                   <textarea
                     name="note"
                     className="flex items-center w-full px-4 py-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-600"
                     rows="2"
                     style={{"resize":"none"}}
-                    placeholder="Notes htmlFor delivery"
+                    placeholder="Your message"
                   ></textarea>
                 </div>
                 <div className="mt-4">
-                  <button disabled={state?false:true} className="w-full px-6 py-2 text-blue-200 bg-blue-600 hover:bg-blue-900">
+                  <button disabled={state?false:true} className="w-full px-6 py-2 text-white bg-blue-800 hover:bg-blue-600 disabled:cursor-not-allowed">
                     Process
                     
                   </button>
