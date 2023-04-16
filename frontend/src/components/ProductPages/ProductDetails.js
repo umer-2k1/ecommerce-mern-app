@@ -8,6 +8,10 @@ import ReactStars from "react-rating-stars-component";
 import ReviewCard from './ReviewCard';
 import Loader from '../../layout/Loader';
 import { ToastContainer, toast } from 'react-toastify';
+import { formatNumberWithCommas } from '../../utility/utilsFunction';
+
+
+
 const ProductDetails = () => {
     const navigate = useNavigate()
     const location = useLocation()
@@ -147,8 +151,11 @@ viewBox="0 0 48 48">
         <div className="mydiv flex flex-col">
 
         <div className="prize md:my-4 my-3">
-        <h1 className='font-roboto md:text-3xl text-xl'>Rs. {product.prize}</h1>
-        </div>
+  <h1 className='font-roboto md:text-3xl text-xl'>
+    {product && product.prize ? `Rs. ${formatNumberWithCommas(product.prize.toFixed(2))}` : ''}
+  </h1>
+</div>
+
 
         <div className="details flex flex-col md:flex-row md:my-3 my-2 md:items-center items-start space-y-4 md:space-y-0">
                 <p>Status: 
@@ -178,7 +185,7 @@ viewBox="0 0 48 48">
 <hr />
         <div className=" button my-5 ">
 {/* <button disabled={product.availableQty<1? true:false} onClick={buyNowHandler} className='px-1 py-1 w-28 md:w-36 text-white md:px-2 md:py-2 bg-[#E86229] rounded-md disabled:cursor-not-allowed disabled:opacity-60' type="submit">Buy Now</button> */}
-<button disabled={product.availableQty<1? true:false} onClick={buyNowHandler} className='px-1 py-1 w-28 md:w-36 text-white md:px-2 md:py-2 bg-[#E86229] rounded-md disabled:cursor-not-allowed disabled:opacity-60' type="submit">Buy Now</button>
+<button onClick={buyNowHandler} className='px-1 py-1 w-28 md:w-36 text-white md:px-2 md:py-2 bg-[#E86229] rounded-md' type="submit">Buy Now</button>
 
 
 
