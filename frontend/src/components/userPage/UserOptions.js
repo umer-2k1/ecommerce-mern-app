@@ -8,7 +8,8 @@ import userImg from '../../images/user.png'
 import { logoutUser } from '../../actions/userAction';
 import {emptyCart} from '../../actions/cartAction'
 import {useDispatch } from 'react-redux'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
+import ToastAlert from '../../layout/ToastAlert';
 import { useNavigate  } from "react-router-dom";
 // import { loadTheUser } from '../../actions/userAction';
 import { MdDashboard,MdAccountBox} from "react-icons/md";
@@ -70,18 +71,7 @@ const UserOptions = ({user}) => {
 
 
     <div>
- <ToastContainer 
-    position="top-right"
-    autoClose={1000}
-    hideProgressBar={false}
-    newestOnTop
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss={false}
-    draggable
-    pauseOnHover={false}
-    theme="dark"
-    />
+ <ToastAlert/>
 <Backdrop open={open} style={{zIndex:'10', overFlow: "hidden"}} />
       <SpeedDial
   ariaLabel="SpeedDial basic example"

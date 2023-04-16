@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {getLoginUser, clearErrors} from '../../actions/userAction'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
+import ToastAlert from '../../layout/ToastAlert';
 import {emptyCart} from '../../actions/cartAction'
 
 const Login = () => {
@@ -41,18 +42,7 @@ const Login = () => {
 
   return (
     <>
-          <ToastContainer 
-    position="top-right"
-    autoClose={1000}
-    hideProgressBar={false}
-    newestOnTop
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss={false}
-    draggable
-    pauseOnHover={false}
-    theme="dark"
-    />
+          <ToastAlert/>
 
            <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div className="w-full max-w-md space-y-8">

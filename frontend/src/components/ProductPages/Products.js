@@ -5,7 +5,6 @@ import ReactStars from "react-rating-stars-component";
 import "../../Style/ProductCard.css";
 import Loader from '../../layout/Loader';
 import {useParams } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
 import ProductCard from './ProductCard';
 import SearchBar from '../Filter/SearchBar';
 import ReactPaginate from 'react-paginate';
