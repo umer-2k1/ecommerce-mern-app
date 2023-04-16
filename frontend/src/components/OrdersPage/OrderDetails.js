@@ -5,8 +5,8 @@ import { orderDetails, clearErrors} from '../../actions/orderAction'
 import Loader from '../../layout/Loader';
 import {MdMarkEmailUnread} from 'react-icons/md'
 import Typography from '@mui/material/Typography';
-import { ToastContainer, toast } from 'react-toastify';
-
+import { toast } from 'react-toastify';
+import ToastAlert from '../../layout/ToastAlert';
 
 const OrderDetails = () => {
     let history = useNavigate();
@@ -41,18 +41,7 @@ useEffect(() => {
 { loading? (<Loader/>):
 (
 <>
-<ToastContainer 
-    position="top-right"
-    autoClose={1000}
-    hideProgressBar={false}
-    newestOnTop
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss={false}
-    draggable
-    pauseOnHover={false}
-    theme="dark"
-    />
+<ToastAlert/>
 
 {order&&    <div className="container mx-6 my-8">
       <header>My Orders / Tracking </header>

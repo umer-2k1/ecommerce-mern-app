@@ -2,7 +2,6 @@ import React from 'react'
 // import { saveOrderItems} from '../../actions/cartAction'
 import { useSelector } from 'react-redux'
 import "../../Style/ProductDetails.css";
-import { ToastContainer } from 'react-toastify';
 import Typography from '@mui/material/Typography';
 import CheckoutSteps from './CheckoutSteps';
 import { formatNumberWithCommas } from '../../utility/utilsFunction';
@@ -43,18 +42,6 @@ const proceedToPaymentHandler = ()=>{
   return (
     <>
 
-<ToastContainer 
-    position="top-right"
-    autoClose={1000}
-    hideProgressBar={false}
-    newestOnTop
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss={false}
-    draggable
-    pauseOnHover={false}
-    theme="dark"
-    />
 
 <CheckoutSteps activeStep={1} />
    

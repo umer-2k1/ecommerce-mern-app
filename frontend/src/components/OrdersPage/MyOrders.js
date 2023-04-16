@@ -5,9 +5,10 @@ import { myOrders, clearErrors} from '../../actions/orderAction'
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import {RiExternalLinkLine} from 'react-icons/ri'
 import '../../Style/MyOrders.css'
+import ToastAlert from '../../layout/ToastAlert';
 
 const MyOrders = () => {
     let history = useNavigate();
@@ -86,18 +87,7 @@ const MyOrders = () => {
   return (
     <>
 
-       <ToastContainer 
-    position="top-right"
-    autoClose={1000}
-    hideProgressBar={false}
-    newestOnTop
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss={false}
-    draggable
-    pauseOnHover={false}
-    theme="dark"
-    />
+       <ToastAlert />
 
 <div className="main-div mx-20" >
 
