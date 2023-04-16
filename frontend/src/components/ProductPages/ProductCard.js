@@ -1,6 +1,7 @@
 import React from "react";
 import ReactStars from "react-rating-stars-component";
 import "../../Style/ProductCard.css";
+import { formatNumberWithCommas } from "../../utility/utilsFunction";
 
 import { Link } from 'react-router-dom';
 
@@ -33,7 +34,7 @@ function ProductCard({ prod }) {
                 <h2 className="text-gray-900 title-font text-lg font-medium">
                   {prod.title}
                 </h2>
-                <p className="mt-1 text-[#EA7135] text-lg font-bold">Rs. {prod.prize}</p>
+                <p className="mt-1 text-[#EA7135] text-lg font-bold">Rs. {formatNumberWithCommas(prod.prize)}</p>
                 <div>
                   <ReactStars {...options} /> <span>({prod.nofReviews} reviews)</span>
                 </div>
