@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {getLoginUser, clearErrors} from '../../actions/userAction'
-import { toast } from 'react-toastify';
-import ToastAlert from '../../layout/ToastAlert';
+import { ToastContainer, toast } from 'react-toastify';
 import {emptyCart} from '../../actions/cartAction'
 
 const Login = () => {
   const dispatch = useDispatch()
-  // let history = useNavigate()
-  // let location = useLocation ()
+  let navigate = useNavigate()
   const {isAuthenticate, error} = useSelector((state)=> state.user)
 
     const [login, setLogin] = useState({
@@ -25,7 +23,16 @@ const Login = () => {
       const {email, password} = login
       dispatch(emptyCart())
       dispatch(getLoginUser(email, password))
-      // .then(()=> history(`/`))
+
+      if (password.length<=0 || email.length<=0) {
+        toast.warn("Incomplete password or email")
+      }
+
+      else{
+        navigate(`/`)
+      }
+
+      
     }
 // let redirect = location.search?location.search.split("=")[1]:"/"
     useEffect(() => {
@@ -33,16 +40,23 @@ const Login = () => {
         toast.error(error)
         dispatch(clearErrors())
       }
-        if(isAuthenticate){
-        // else if(isAuthenticate){
-          // then(()=> history(`/`))
-          // history(`/${redirect}`)
-        }
+
       },[dispatch, error, toast]);
 
   return (
     <>
-          <ToastAlert/>
+          <ToastContainer 
+    position="top-right"
+    autoClose={1000}
+    hideProgressBar={false}
+    newestOnTop
+    closeOnClick
+    rtl={false}
+    pauseOnFocusLoss={false}
+    draggable
+    pauseOnHover={false}
+    theme="dark"
+    />
 
            <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div className="w-full max-w-md space-y-8">
@@ -63,7 +77,7 @@ const Login = () => {
         </div>
         <div>
           <label htmlFor="password" className="sr-only">Password</label>
-          <input id="password" onChange={getLoginData} value={login.password} name="password" type="password" autoComplete="current-password" required className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password"/>
+          <input id="password" onChange={getLoginData} value={login.password} name="password" type="password" autoComplete="current-password" className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password"/>
         </div>
       </div>
 
