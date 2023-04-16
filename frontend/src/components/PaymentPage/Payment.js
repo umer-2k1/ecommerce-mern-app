@@ -7,6 +7,7 @@ import { useSelector, useDispatch} from 'react-redux'
 import { creatingOrders} from '../../actions/orderAction'
 import {emptyCart} from '../../actions/cartAction'
 import { API_BASE_URL } from '../../config/apiConfig';
+import { ToastContainer, toast } from 'react-toastify';
 import { formatNumberWithCommas } from '../../utility/utilsFunction';
 
 const Payment = () => {
@@ -59,8 +60,8 @@ const order = {
             }
             console.log(order)
            dispatch(creatingOrders(order))
+           toast.success("Your Order has been Placed!")
            history('/order-placed')
-           alert("Order placed")
            dispatch(emptyCart())
            sessionStorage.removeItem("amountInfo")
            localStorage.removeItem("ordersInfo")
@@ -90,6 +91,19 @@ useEffect(() => {
 
   return (
     <>
+        <ToastContainer 
+    position="top-right"
+    autoClose={1000}
+    hideProgressBar={false}
+    newestOnTop
+    closeOnClick
+    rtl={false}
+    pauseOnFocusLoss={false}
+    draggable
+    pauseOnHover={false}
+    theme="dark"
+    />
+
     <CheckoutSteps activeStep={2} />
 
 <div className="container my-12 items-center justify-center text-center">
