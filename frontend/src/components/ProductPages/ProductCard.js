@@ -9,7 +9,7 @@ function ProductCard({ prod }) {
   // window.scrollTo(0, 0)
   const options = {
     edit: false,
-    activeColor: "tomato",
+    activeColor: "#FFD700",
     color: "rgba(20,20,20,0.2)",
     value: prod.rattings,
     isHalf: true,
@@ -27,16 +27,17 @@ function ProductCard({ prod }) {
 <img  alt="ecommerce" className="w-full h-[38vh]"  src={prod.images[0].url}/>
               </div>
               <div className="mt-4 p-3">
-                <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
+                <h3 className="text-gray-500 text-base tracking-widest title-font mb-1">
                   {prod.category}
                 </h3>
                 <h2 className="text-gray-900 title-font text-lg font-medium">
                   {prod.title}
                 </h2>
+                <p className="mt-1 text-[#EA7135] text-lg font-bold">Rs. {prod.prize}</p>
                 <div>
                   <ReactStars {...options} /> <span>({prod.nofReviews} reviews)</span>
                 </div>
-                <p className="mt-1 text-orange-700 text-lg font-bold">Rs. {prod.prize}</p>
+                
               </div>
             </Link>
 
