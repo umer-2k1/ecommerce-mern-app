@@ -78,7 +78,7 @@ to your cart</h3>
 
 <div className="sub-total flex flex-inline justify-between py-4 border-t-2 border-gray-200">
 <h2 className='font-bold'>Order Total</h2>
-<span>{cartItems.reduce((acc, currValue)=> acc+ (currValue.quantity*currValue.prize),0)}</span>
+<span>Rs: {cartItems.reduce((acc, currValue)=> acc+ (currValue.quantity*currValue.prize),0)}</span>
 </div>
 
 <div className="checkout">
