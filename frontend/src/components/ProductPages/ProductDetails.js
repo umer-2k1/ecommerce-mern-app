@@ -21,7 +21,6 @@ const Products = () => {
     "Shoes",
     "T-Shirts",
   ]
-  let categoryArray = []
   
   let {keyword} = useParams()
     const dispatch = useDispatch()
@@ -32,20 +31,16 @@ const Products = () => {
     const[rating, setRating] = useState("0")
     const[clearfilters, setClearfilters] = useState("")
     
+    let categoryArray = []
+    const handleFilteredCategoies = (categoryArray)=>{
+      let filteredData = products.filter((element)=>
+    !categoryArray.includes(element.category) ? categoryArray.unshift(element.category) : ""
+    ).map((elem) => elem.category);
+    console.log("filter Category: ",filteredData)
+    return filteredData;
+    
+    }
 
-const handleFilteredCategoies = (categoryArray)=>{
-  let filteredData = products.filter((element)=>
-!categoryArray.includes(element.category) ? categoryArray.unshift(element.category) : ""
-)
-console.log("filter Category: ",filteredData)
-}
-
-// const handleFilteredCategoies = (categoryArray)=>{
-//   let filteredData = products.category.filter((element)=>
-// !categoryArray.includes(element) ? categoryArray.unshift(element) : ""
-// )
-// console.log("filter Category: ",filteredData)
-// }
 
     const handlePageClick = (event) =>{
       const newOffset = event.selected+1;
