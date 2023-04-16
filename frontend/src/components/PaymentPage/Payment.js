@@ -7,6 +7,7 @@ import { useSelector, useDispatch} from 'react-redux'
 import { creatingOrders} from '../../actions/orderAction'
 import {emptyCart} from '../../actions/cartAction'
 import { API_BASE_URL } from '../../config/apiConfig';
+import { formatNumberWithCommas } from '../../utility/utilsFunction';
 
 const Payment = () => {
   const publishableKey = "pk_test_51M3EDcLvaK7iIutswTMranEQXWPAQsPIMVfdTnppjJ82FMa4dQV3vg1ga1rLavLZ4f2bA0L34W89nuRXhLsak7DZ00LwvV86c8"
@@ -101,8 +102,9 @@ useEffect(() => {
         // label={"Pay with Credit Card"}
         name={"Pay with Credit Card"}
         // description={""}
-        description={`Your total is $${orderInfo.total}`}
-        amount={orderInfo.total*100}
+        description={`Your total is Rs. ${formatNumberWithCommas(orderInfo.total.toFixed(2))}`}
+        amount={orderInfo.total * 100}
+
         image = {newUser.avatar.url}
         email= {newUser.email}
         // locale= {"kddsa"}
