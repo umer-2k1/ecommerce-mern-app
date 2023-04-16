@@ -5,6 +5,7 @@ import "../../Style/ProductDetails.css";
 import { ToastContainer } from 'react-toastify';
 import Typography from '@mui/material/Typography';
 import CheckoutSteps from './CheckoutSteps';
+import { formatNumberWithCommas } from '../../utility/utilsFunction';
 import {useNavigate } from 'react-router-dom'
 // import { elementAcceptingRef } from '@mui/utils';
 
@@ -88,7 +89,7 @@ const proceedToPaymentHandler = ()=>{
 <div className="sub-prize flex flex-inline justify-between">
 <p>{element.quantity}x{element.prize}</p>
 <span> = </span>
-<Typography>Rs: {element.quantity*element.prize}</Typography>
+<Typography>Rs: {formatNumberWithCommas(element.quantity*element.prize)}</Typography>
 </div>
 
 
@@ -114,22 +115,22 @@ const proceedToPaymentHandler = ()=>{
 
 <div className="sub-total flex flex-inline justify-between py-4 ">
 <p>Subtotal</p>
-<span>{subTotal}</span>
+<span>{formatNumberWithCommas(subTotal.toFixed(2))}</span>
 </div>
 
 <div className="sub-total flex flex-inline justify-between py-4 ">
 <p>Shipping Estimate</p>
-<span>${shippingCharge}</span>
+<span>Rs. {formatNumberWithCommas(shippingCharge.toFixed(2))}</span>
 </div>
 
 <div className="sub-total flex flex-inline justify-between py-4 border-b-2 border-gray-200">
 <p>GST Estimate</p>
-<span>${tax}</span>
+<span>Rs. {formatNumberWithCommas(tax.toFixed(2))}</span>
 </div>
 
 <div className="sub-total flex flex-inline justify-between py-4 ">
 <h2 className='font-bold'>Total</h2>
-<span>${total}</span>
+<span>Rs. {formatNumberWithCommas(total.toFixed(2))}</span>
 </div>
 
 <div className="checkout">
