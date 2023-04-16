@@ -6,6 +6,7 @@ import { removeFromCart,addCartItems } from '../../actions/cartAction'
 import EmptyCart from './EmptyCart'
 import { FcRight } from "react-icons/fc";
 import Typography from '@mui/material/Typography';
+import { formatNumberWithCommas } from '../../utility/utilsFunction'
 
 
 
@@ -78,7 +79,7 @@ to your cart</h3>
 
 <div className="sub-total flex flex-inline justify-between py-4 border-t-2 border-gray-200">
 <h2 className='font-bold'>Order Total</h2>
-<span>Rs. {cartItems.reduce((acc, currValue)=> acc+ (currValue.quantity*currValue.prize),0)}</span>
+<span>Rs:  {formatNumberWithCommas(cartItems.reduce((acc, currValue)=> acc+ (currValue.quantity*currValue.prize),0).toFixed(2))}</span>
 </div>
 
 <div className="checkout">
