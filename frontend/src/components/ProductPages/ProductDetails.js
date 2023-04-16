@@ -7,8 +7,8 @@ import "../../Style/ProductDetails.css";
 import ReactStars from "react-rating-stars-component";
 import ReviewCard from './ReviewCard';
 import Loader from '../../layout/Loader';
-import {toast } from 'react-toastify';
 import { formatNumberWithCommas } from '../../utility/utilsFunction';
+import {toast } from 'react-toastify';
 import ToastAlert from '../../layout/ToastAlert';
 
 
@@ -84,7 +84,7 @@ const ProductDetails = () => {
 
     (
       <>
-      
+
       <ToastAlert/>
 
       <section className="text-gray-700 body-font overflow-hidden bg-white">

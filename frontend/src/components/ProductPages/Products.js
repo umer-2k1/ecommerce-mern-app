@@ -11,6 +11,11 @@ import ReactPaginate from 'react-paginate';
 import '../../Style/Products.css'
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
+import {toast } from 'react-toastify';
+import ToastAlert from '../../layout/ToastAlert';
+
+
+
 const Products = () => {
   let categories = [
     "Laptop",
@@ -66,7 +71,7 @@ const Products = () => {
       {loading ? <Loader/>:     
       
         <>
-
+    <ToastAlert/>
         {/* outer div */}
 <Typography variant='h3' className='text-center pt-4 text-gray-600' >Products</Typography>
 
