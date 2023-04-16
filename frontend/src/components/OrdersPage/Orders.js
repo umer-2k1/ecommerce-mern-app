@@ -4,7 +4,8 @@ import { saveOrderItems,} from '../../actions/cartAction'
 import { Link, useNavigate } from 'react-router-dom'
 import { Country, State, City }  from 'country-state-city';
 import CheckoutSteps from './CheckoutSteps';
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
+import ToastAlert from '../../layout/ToastAlert';
 
 const Orders = ({activeStep}) => {
     let history = useNavigate();
@@ -39,18 +40,7 @@ const submitShippingDetails = (e)=>{
   return (
     <>
 
-<ToastContainer 
-    position="top-right"
-    autoClose={1000}
-    hideProgressBar={false}
-    newestOnTop
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss={false}
-    draggable
-    pauseOnHover={false}
-    theme="dark"
-    />
+<ToastAlert/>
     
     <CheckoutSteps activeStep={0} />
       <div className="mt-20 ">

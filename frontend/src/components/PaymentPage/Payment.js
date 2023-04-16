@@ -7,8 +7,10 @@ import { useSelector, useDispatch} from 'react-redux'
 import { creatingOrders} from '../../actions/orderAction'
 import {emptyCart} from '../../actions/cartAction'
 import { API_BASE_URL } from '../../config/apiConfig';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { formatNumberWithCommas } from '../../utility/utilsFunction';
+import ToastAlert from '../../layout/ToastAlert';
+
 
 const Payment = () => {
   const publishableKey = "pk_test_51M3EDcLvaK7iIutswTMranEQXWPAQsPIMVfdTnppjJ82FMa4dQV3vg1ga1rLavLZ4f2bA0L34W89nuRXhLsak7DZ00LwvV86c8"
@@ -91,18 +93,8 @@ useEffect(() => {
 
   return (
     <>
-        <ToastContainer 
-    position="top-right"
-    autoClose={1000}
-    hideProgressBar={false}
-    newestOnTop
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss={false}
-    draggable
-    pauseOnHover={false}
-    theme="dark"
-    />
+    
+    <ToastAlert/>
 
     <CheckoutSteps activeStep={2} />
 
