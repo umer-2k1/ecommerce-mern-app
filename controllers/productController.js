@@ -21,8 +21,15 @@ const addProducts = async(req,res,next)=>{
 
 const getAllProducts = async(req,res,next)=>{
   try {
+    const allProducts = await Products.find();
+    let categoryArray = []
+      let filteredCategory = allProducts.filter((element)=>
+      !categoryArray.includes(element.category) ? categoryArray.unshift(element.category) : ""
+    ).map((elem) => elem.category);
+    console.log("filteredCategory: ",filteredCategory)
+
       const productCount = await Products.countDocuments()
-      const resultPerPage = 15
+      const resultPerPage = 7
       const apifeatures = new ApiFeatures(Products.find(), req.query)
       .search()
       .filter()
@@ -32,7 +39,7 @@ const getAllProducts = async(req,res,next)=>{
       apifeatures.pagination(resultPerPage)
       prod = await apifeatures.query.clone()
       // res.status(200).json({ success: true, products: prod});
-      res.status(200).json({ success: true, products: prod, productCount, resultPerPage,filteredProducts});
+      res.status(200).json({ success: true, products: prod, productCount, resultPerPage,filteredProducts, filteredCategory});
     } catch (error) {
       console.error(error);
       res.status(500).json("Internal Server error occured");
