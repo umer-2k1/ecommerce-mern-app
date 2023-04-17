@@ -5,37 +5,64 @@ import ReactStars from "react-rating-stars-component";
 import "../../Style/ProductCard.css";
 import Loader from '../../layout/Loader';
 import {useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import ProductCard from './ProductCard';
 import SearchBar from '../Filter/SearchBar';
 import ReactPaginate from 'react-paginate';
 import '../../Style/Products.css'
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
-import {toast } from 'react-toastify';
-import ToastAlert from '../../layout/ToastAlert';
-
-
-
 const Products = () => {
-  let categories = [
-    "Laptop",
-    "Ear pods",
-    "Mouse",
-    "Bags",
-    "Shoes",
-    "T-Shirts",
-  ]
+  // let categories = [
+  //   "Laptop",
+  //   "Ear pods",
+  //   "Mouse",
+  //   "Bags",
+  //   "Shoes",
+  //   "T-Shirts",
+  // ]
+  
   let {keyword} = useParams()
     const dispatch = useDispatch()
-    const {loading, products, productCount, error, resultPerPage,filteredProducts} = useSelector((state)=> state.products)
+    const {loading, products, productCount, error, resultPerPage,filteredProducts, filteredCategory} = useSelector((state)=> state.products)
     const[currentPage, setCurrentPage] = useState(0)
     const[price, setPrice] = useState([0,25000])
     const[category, setCategory] = useState('')
     const[rating, setRating] = useState("0")
     const[clearfilters, setClearfilters] = useState("")
+    
+    
+    // const[filterCategory, setFilterCategory] = useState([])
+    // let categoryArray = []
+    // const handleFilteredCategories = (categoryArray)=>{
+    //   let filteredData = products?.filter((element)=>
+    //   !categoryArray.includes(element.category) ? categoryArray.unshift(element.category) : ""
+    // ).map((elem) => elem.category);
+    // setFilterCategory(filteredData)
+    // console.log("Category State: ",filterCategory)
+    // console.log("filter Category: ",filteredData)
+    // return filteredData;
+    // }
 
 
 
+    // const [filterCategory, setFilterCategory] = useState([]);
+
+    // const handleFilteredCategories = () => {
+    //   let categoryArray = [];
+    //   let filteredData = products
+    //     ?.filter((element) =>
+    //       !categoryArray.includes(element.category)
+    //         ? categoryArray.unshift(element.category)
+    //         : ""
+    //     )
+    //     .map((elem) => elem.category);
+    //   setFilterCategory(filteredData);
+    //   console.log("Category State: ", filterCategory);
+    //   console.log("filter Category: ", filteredData);
+    //   return filteredData;
+    // };
+    
 
     const handlePageClick = (event) =>{
       const newOffset = event.selected+1;
@@ -63,6 +90,8 @@ const Products = () => {
         dispatch(getAllProducts(keyword, currentPage,price, category, rating))
 
         console.log("products Page: ",products)
+      //   handleFilteredCategories()
+      //  console.log("Fitlered State: ",filterCategory)  
       },[dispatch, keyword,currentPage,price,category, rating, error]);
 
   let count = filteredProducts
@@ -71,7 +100,7 @@ const Products = () => {
       {loading ? <Loader/>:     
       
         <>
-    <ToastAlert/>
+
         {/* outer div */}
 <Typography variant='h3' className='text-center pt-4 text-gray-600' >Products</Typography>
 
@@ -110,9 +139,12 @@ const Products = () => {
           <Typography variant='h6' >Category</Typography>
           <ul>
 
-          {categories && categories.map((val,index) =>
-          (<li onClick={()=> setCategory(val)} className='links cursor-pointer focus:border-b-2 focus:border-indigo-500 text-gray-500 hover:text-black  text-lg' key={index}  >{val}</li>)
-          )}  
+          {filteredCategory && filteredCategory.map((categ,index) =>(<li onClick={()=> setCategory(categ)} className='links cursor-pointer focus:border-b-2 focus:border-indigo-500 text-gray-500 hover:text-black  text-lg' key={index}>{categ}</li>))}
+          
+         
+
+
+
           </ul>
         </div>
 
