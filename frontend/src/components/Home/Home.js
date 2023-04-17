@@ -12,7 +12,7 @@ import ToastAlert from '../../layout/ToastAlert';
 
 
 const Home = () => {
-  const notify = () => toast.error("Wow so easy!");
+  // const notify = () => toast.error("Wow so easy!");
     const dispatch = useDispatch()
 
     const {loading, products, productCount, error} = useSelector((state)=> state.products)
@@ -41,7 +41,7 @@ const Home = () => {
     <p className='md:text-2xl text-xl' >Discover product for a life well lived</p>
     
     <Link to="/product/getproducts">
-    <button onClick={notify} className='md:text-xl text-sm md:py-3 md:px-7 py-1 px-3 md:mt-7 mt-3 rounded-[30px] bg-blue-800 text-white hover:bg-white hover:text-blue-800 hover:border-2 hover:border-blue-800' >Start Shopping &#8594;</button>
+    <button  className='md:text-xl text-sm md:py-3 md:px-7 py-1 px-3 md:mt-7 mt-3 rounded-[30px] bg-blue-800 text-white hover:bg-white hover:text-blue-800 hover:border-2 hover:border-blue-800' >Start Shopping &#8594;</button>
     </Link>
 
     </div>
