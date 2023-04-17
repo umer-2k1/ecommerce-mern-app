@@ -1,6 +1,15 @@
-import React from 'react'
+import React,{useState} from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { getAllProducts } from '../../actions/productAction'
 
 const Footer = () => {
+  const dispatch = useDispatch()
+  const {filteredCategory} = useSelector((state)=> state.products)
+
+  const[category, setCategory] = useState('')
+
+
+
   return (
     <>
 {/* #0a1435 */}
@@ -17,24 +26,21 @@ const Footer = () => {
       <p className="mt-2 text-sm text-white">Ecommerce, also known as electronic commerce or internet commerce, refers to the buying and selling of goods or services using the internet</p>
     </div>
     <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center ">
-      <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+      <div className="lg:w-1/4 md:w-1/2 w-full px-8">
         <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3 ">SHOPS</h2>
         <nav className="list-none mb-10">
-          <li>
+          
+          {/* <li>
             <a href='#' className="text-white hover:text-gray-400 cursor-pointer">Laptop</a>
-          </li>
-          <li>
-            <a href='#' className="text-white hover:text-gray-400 cursor-pointer">Mobile Phones</a>
-          </li>
-          <li>
-            <a href='#' className="text-white hover:text-gray-400 cursor-pointer">Computer Accessories</a>
-          </li>
-          <li>
-            <a href='#' className="text-white hover:text-gray-400 cursor-pointer">Smart Watch</a>
-          </li>
+          </li> */}
+
+
+          {filteredCategory && filteredCategory.map((categ,index) =>(<li onClick={()=> setCategory(categ)} className='text-white hover:text-gray-400 cursor-pointer' key={index}>{categ}</li>))}
+
+
         </nav>
       </div>
-      <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+      <div className="lg:w-1/4 md:w-1/2 w-full px-8">
         <h2 className="title-font font-medium tracking-widest text-sm mb-3 text-white">CUSTOMER SERVICE</h2>
         <nav className="list-none mb-10">
           <li>
@@ -49,7 +55,7 @@ const Footer = () => {
 
         </nav>
       </div>
-      <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+      <div className="lg:w-1/4 md:w-1/2 w-full px-8">
         <h2 className="title-font font-medium tracking-widest text-sm mb-3 text-white">POLICY</h2>
         <nav className="list-none mb-10">
           <li>
@@ -60,7 +66,8 @@ const Footer = () => {
           </li>
         </nav>
       </div>
-      <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+      
+      {/* <div className="lg:w-1/4 md:w-1/2 w-full px-8">
         <h2 className="title-font font-medium  tracking-widest text-sm mb-3 text-white">CATEGORIES</h2>
         <nav className="list-none mb-10">
           <li>
@@ -76,7 +83,9 @@ const Footer = () => {
             <a href='#' className="text-white hover:text-gray-400 cursor-pointer">Fourth Link</a>
           </li>
         </nav>
-      </div>
+      </div> */}
+
+
     </div>
   </div>
   {/* #112C3E */}
