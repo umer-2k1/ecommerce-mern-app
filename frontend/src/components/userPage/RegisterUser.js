@@ -49,7 +49,7 @@ const registrationSubmit = (e)=>{
   myform.set("email", email)
   myform.set("password", password)
   myform.set("avatar", avatar)
-  console.log("Signup Successfully")
+  toast.success("Signup Successfully")
   dispatch(emptyCart())
   dispatch(registerNewUser(myform)).then(()=> history(`/auth/loginUser`))
 }
