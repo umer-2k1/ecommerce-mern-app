@@ -27,21 +27,18 @@ const Login = () => {
       if (password.length<=0 || email.length<=0) {
         toast.warn("Incomplete password or email")
       }
-
-      else{
-        navigate(`/`)
-      }
-
       
     }
 // let redirect = location.search?location.search.split("=")[1]:"/"
-    useEffect(() => {
-      if (error) {
-        toast.error(error)
-        dispatch(clearErrors())
-      }
-
-      },[dispatch, error, toast]);
+useEffect(() => {
+  if (error) {
+    toast.error(error)
+    dispatch(clearErrors())
+  }
+  else if(isAuthenticate){
+    navigate(`/`)
+  }
+  },[dispatch, error, toast, isAuthenticate]);
 
   return (
     <>
