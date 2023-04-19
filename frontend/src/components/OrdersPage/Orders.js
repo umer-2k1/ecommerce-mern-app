@@ -8,7 +8,7 @@ import {toast } from 'react-toastify';
 import ToastAlert from '../../layout/ToastAlert';
 
 const Orders = ({activeStep}) => {
-    let history = useNavigate();
+    let navigate = useNavigate();
     const dispatch = useDispatch()
     const {shippingInfo} = useSelector((state)=> state.cart)
 
@@ -31,7 +31,7 @@ const submitShippingDetails = (e)=>{
       }
       else{
         dispatch(saveOrderItems({address, city, state, pinCode, country, phoneNo}))
-        history("/orders/confirm")
+        navigate("/orders/confirm")
       }
 
     }

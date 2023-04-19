@@ -11,7 +11,7 @@ import '../../Style/MyOrders.css'
 import ToastAlert from '../../layout/ToastAlert';
 
 const MyOrders = () => {
-    let history = useNavigate();
+    let navigate = useNavigate();
   const dispatch = useDispatch()
     const { orders, error, loading } = useSelector((state) => state.myOrder);
     const {newUser} = useSelector((state)=> state.user)

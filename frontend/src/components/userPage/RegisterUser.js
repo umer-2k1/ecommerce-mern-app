@@ -10,7 +10,7 @@ import {emptyCart} from '../../actions/cartAction'
 
 const RegisterUser = () => {
 const dispatch = useDispatch()
-let history = useNavigate()
+let navigate = useNavigate()
 const {isAuthenticate, error} = useSelector((state)=> state.user)
 
 const [signUp, setSignUp] = useState({
@@ -51,7 +51,7 @@ const registrationSubmit = (e)=>{
   myform.set("avatar", avatar)
   toast.success("Signup Successfully")
   dispatch(emptyCart())
-  dispatch(registerNewUser(myform)).then(()=> history(`/auth/loginUser`))
+  dispatch(registerNewUser(myform)).then(()=> navigate(`/auth/loginUser`))
 }
 
 useEffect(() => {
@@ -60,9 +60,9 @@ useEffect(() => {
     dispatch(clearErrors())
   }
     if(isAuthenticate){
-      history(`/auth/loginUser`)
+      navigate(`/auth/loginUser`)
     }
-  },[dispatch, error, history, isAuthenticate]);
+  },[dispatch, error, navigate, isAuthenticate]);
 
   return (
     <>

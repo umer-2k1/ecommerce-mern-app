@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import ToastAlert from '../../layout/ToastAlert';
 
 const OrderDetails = () => {
-    let history = useNavigate();
+    let navigate = useNavigate();
     let {id} = useParams();
 
     const dispatch = useDispatch()
@@ -29,7 +29,7 @@ useEffect(() => {
     //   dispatch(clearErrors())
     // }
       // else if(isAuthenticate===true){
-      //   history("/")
+      //   navigate("/")
       // }
       dispatch(orderDetails(id))
       console.log(order)

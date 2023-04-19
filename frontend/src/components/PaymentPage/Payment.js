@@ -15,7 +15,7 @@ import ToastAlert from '../../layout/ToastAlert';
 const Payment = () => {
   const publishableKey = "pk_test_51M3EDcLvaK7iIutswTMranEQXWPAQsPIMVfdTnppjJ82FMa4dQV3vg1ga1rLavLZ4f2bA0L34W89nuRXhLsak7DZ00LwvV86c8"
   
-  let history = useNavigate();
+  let navigate = useNavigate();
   const dispatch = useDispatch()
     const { shippingInfo, cartItems } = useSelector((state) => state.cart);
     const {newUser} = useSelector((state)=> state.user)
@@ -63,7 +63,7 @@ const order = {
             console.log(order)
            dispatch(creatingOrders(order))
            toast.success("Your Order has been Placed!")
-           history('/order-placed')
+           navigate('/order-placed')
            dispatch(emptyCart())
            sessionStorage.removeItem("amountInfo")
            localStorage.removeItem("ordersInfo")
@@ -87,7 +87,7 @@ useEffect(() => {
   //   dispatch(clearErrors())
   // }
     // else if(isAuthenticate===true){
-    //   history("/")
+    //   navigate("/")
     // }
   },[dispatch]);
 

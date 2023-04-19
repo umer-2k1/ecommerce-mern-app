@@ -17,7 +17,7 @@ import { formatNumberWithCommas } from '../../utility/utilsFunction'
 
 
 const Cart = () => {
-  let history = useNavigate();
+  let navigate = useNavigate();
     const dispatch = useDispatch()
     // let {id} = useParams()
     const {cartItems} = useSelector((state)=> state.cart)
@@ -39,7 +39,7 @@ const Cart = () => {
     }
 
     const checkOutHandler = ()=>{
-      history("/orders");
+      navigate("/orders");
       // <Redirect to="/login?redirect=orders" />
     }
 

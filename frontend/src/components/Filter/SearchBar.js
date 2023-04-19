@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { BiSearchAlt2 } from "react-icons/bi";
 import './SearchBar.css'
 const SearchBar = () => {
-  let history = useNavigate()
+  let navigate = useNavigate()
   const [keyword, setKeyword] = useState("")
   // const [clearSeacrh, setclearSeacrh] = useState("")
   // setKeyword(clearAllfilters)
@@ -13,10 +13,10 @@ const SearchBar = () => {
   const searchHandler = (e) =>{
     e.preventDefault()
     if(keyword.trim()){
-      history(`/product/getproducts/${keyword}`)
+      navigate(`/product/getproducts/${keyword}`)
     }
     else{
-      history(`/product/getproducts`)
+      navigate(`/product/getproducts`)
     }
     
   }

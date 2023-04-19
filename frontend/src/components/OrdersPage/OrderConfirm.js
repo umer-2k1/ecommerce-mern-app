@@ -11,7 +11,7 @@ import {useNavigate } from 'react-router-dom'
 
 
 const OrderConfirm = () => {
-  let history = useNavigate();
+  let navigate = useNavigate();
 const {shippingInfo,cartItems} = useSelector((state)=> state.cart)
 const {newUser} = useSelector((state)=> state.user)
 
@@ -34,7 +34,7 @@ const proceedToPaymentHandler = ()=>{
     total,
   }
   sessionStorage.setItem("amountInfo", JSON.stringify(amountdata))
-  history("/payment/process")
+  navigate("/payment/process")
 }
 
 

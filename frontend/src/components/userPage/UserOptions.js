@@ -1,29 +1,21 @@
 import React,{useState} from 'react'
 import { SpeedDial, SpeedDialAction ,Backdrop } from '@mui/material';
-// import DashboardIcon from '@mui/icons-material/Dashboard';
-// import AccountBoxIcon from '@mui/icons-material/AccountBox';
-// import LogoutIcon from '@mui/icons-material/Logout';
-// import ListAltIcon from '@mui/icons-material/ListAlt';
+
 import userImg from '../../images/user.png'
-import { logoutUser } from '../../actions/userAction';
+import { logoutUser } from '../../acnavigatetions/userAction';
 import {emptyCart} from '../../actions/cartAction'
 import {useDispatch } from 'react-redux'
-import { toast } from 'react-toastify';
-import ToastAlert from '../../layout/ToastAlert';
+import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate  } from "react-router-dom";
-// import { loadTheUser } from '../../actions/userAction';
 import { MdDashboard,MdAccountBox} from "react-icons/md";
 import { FiLogOut} from "react-icons/fi";
 import { FaRegListAlt} from "react-icons/fa";
 
 
 const UserOptions = ({user}) => {
-// const UserOptions = () => {
-    // const dispatch = useDispatch()
-  // const {isAuthenticate, newUser} = useSelector((state)=> state.user)
 
 
-  let history = useNavigate();
+  let navigate = useNavigate();
   const dispatch = useDispatch()
   const actions = [
     {icon: <MdAccountBox className='text-2xl font-bold' /> , name: "Profile", func: profile},
@@ -40,18 +32,18 @@ const UserOptions = ({user}) => {
 
 
   function profile(){
-    history("/account");
+    navigate("/account");
   }
   
   function orders(){
-    history("/orders");
+    navigate("/orders");
   }
 
   function logout(){
     dispatch(logoutUser())
     dispatch(emptyCart())
+    navigate("/auth/loginUser");
     toast.success("Logout Successfully")
-    history("/auth/loginUser");
   }
 
   function dashboard(){
@@ -71,7 +63,18 @@ const UserOptions = ({user}) => {
 
 
     <div>
- <ToastAlert/>
+ <ToastContainer 
+    position="top-right"
+    autoClose={1000}
+    hideProgressBar={false}
+    newestOnTop
+    closeOnClick
+    rtl={false}
+    pauseOnFocusLoss={false}
+    draggable
+    pauseOnHover={false}
+    theme="dark"
+    />
 <Backdrop open={open} style={{zIndex:'10', overFlow: "hidden"}} />
       <SpeedDial
   ariaLabel="SpeedDial basic example"

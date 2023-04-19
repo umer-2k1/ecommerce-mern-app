@@ -8,13 +8,13 @@ import {Link} from 'react-router-dom'
 
 
 const UserProfile = () => {
-let history = useNavigate();
+let navigate = useNavigate();
   const {isAuthenticate, newUser} = useSelector((state)=> state.user)
   useEffect(() => {
     if(isAuthenticate===false){
-      history('/auth/loginUser')
+      navigate('/auth/loginUser')
     }
-    },[isAuthenticate, history]);
+    },[isAuthenticate, navigate]);
 
   return (
     <>
