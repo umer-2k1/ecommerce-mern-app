@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import { SpeedDial, SpeedDialAction ,Backdrop } from '@mui/material';
 
 import userImg from '../../images/user.png'
-import { logoutUser } from '../../acnavigatetions/userAction';
+import { logoutUser } from '../../actions/userAction';
 import {emptyCart} from '../../actions/cartAction'
 import {useDispatch } from 'react-redux'
 import { ToastContainer, toast } from 'react-toastify';
