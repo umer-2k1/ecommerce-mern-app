@@ -22,24 +22,32 @@ const [signUp, setSignUp] = useState({
 const [avatar, setAvatar] = useState()
 const [previewAvatar, setPreviewAvatar] = useState(userImg)
 
-const getSignUpData = (e)=>{
-
-  const {name,value} =e.target
-  if (name==='avatar') {
-    const reader = new FileReader()
-    reader.onload = ()=> {
-     if(reader.readyState ===2){
-      setPreviewAvatar(reader.result)
-      setAvatar(reader.result)
-     }
+const getSignUpData = (e) => {
+  const { name, value } = e.target;
+  if (name === "avatar") {
+    const file = e.target.files[0];
+    if (file.size > 200 * 1024) {
+      // Discard avatar if it's larger than 1 MB
+      toast.info("Avatar size is too large. Maximum size is 200 KB.");
+      e.target.value = null; // Clear input value
+      setPreviewAvatar(null); // Remove preview image
+      setAvatar(null); // Remove avatar
+      return
+    } else {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (reader.readyState === 2) {
+          setPreviewAvatar(reader.result);
+          setAvatar(reader.result);
+        }
+      };
+      reader.readAsDataURL(file);
     }
-    reader.readAsDataURL(e.target.files[0])
+  } else {
+    setSignUp({ ...signUp, [name]: value });
+  }
+};
 
-  }
-  else{
-    setSignUp({...signUp, [name]:value})
-  }
-}
 
 const registrationSubmit = (e)=>{
   const {name, email, password} = signUp
