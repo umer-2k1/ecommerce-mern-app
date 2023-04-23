@@ -21,7 +21,7 @@ const Footer = () => {
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
         </svg>
-        <span className="ml-3 text-xl text-white">Absolute E-store</span>
+        <span className="ml-3 text-xl text-white">iElectronixTech</span>
       </a>
       <p className="mt-2 text-sm text-white">Ecommerce, also known as electronic commerce or internet commerce, refers to the buying and selling of goods or services using the internet</p>
     </div>
@@ -92,7 +92,7 @@ const Footer = () => {
   {/* #0a1435 */}
   <div className=" bg-[#0a1435]">
     <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-      <p className="text-white hover:text-gray-400 text-sm text-center sm:text-left">© 2023 Ecommerce —
+      <p className="text-white hover:text-gray-400 text-sm text-center sm:text-left">© 2023 iElectronixTech —
         <a href="https://www.linkedin.com/in/umer-memon-4ba251215/" rel="noopener noreferrer" className="text-white hover:text-gray-400 ml-1" target="_blank">All Rights Reserved</a>
       </p>
       <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
