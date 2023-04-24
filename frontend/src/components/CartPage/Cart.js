@@ -61,7 +61,7 @@ to your cart</h3>
      <div  className="bg-gray-50 shadow-lg cart-div flex md:flex-row flex-col w-full h-full  md:space-x-11 md:m-7 my-7 space-x-auto justify-center md:justify-start items-center md:items-start">
 
 {/* Cart item div */}
-<div className="items-div md:w-1/2 w-3/4 h-full border-2 border-red-200 text-xs md:text-base lg:text-lg ">
+<div className="items-div md:w-1/2 w-3/4 h-full text-xs md:text-base lg:text-lg ">
 
 
 {cartItems&& cartItems.map((val)=> 
