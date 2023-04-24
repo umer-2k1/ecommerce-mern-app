@@ -52,14 +52,23 @@ const getSignUpData = (e) => {
 const registrationSubmit = (e)=>{
   const {name, email, password} = signUp
   e.preventDefault()
-  const myform =  new FormData()
-  myform.set("name", name)
-  myform.set("email", email)
-  myform.set("password", password)
-  myform.set("avatar", avatar)
-  toast.success("Signup Successfully")
-  dispatch(emptyCart())
-  dispatch(registerNewUser(myform)).then(()=> navigate(`/auth/loginUser`))
+
+  // if (password.length<=0 || email.length<=0 || name.length<=0 || avatar==null) {
+  if (!(password && email && name && avatar)) {
+    return toast.warn("Incomplete fields")
+  }
+
+  else{
+    const myform =  new FormData()
+    myform.set("name", name)
+    myform.set("email", email)
+    myform.set("password", password)
+    myform.set("avatar", avatar)
+    console.log("Signup Successfully")
+    dispatch(emptyCart())
+    dispatch(registerNewUser(myform)).then(()=> history(`/auth/loginUser`))
+  }
+  
 }
 
 useEffect(() => {
