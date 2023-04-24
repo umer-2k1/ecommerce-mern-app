@@ -51,6 +51,9 @@ const ProductDetails = () => {
     const addToCartHandler = ()=>{
       dispatch(addCartItems(id, newQty))
       toast.success("Item Added to Cart")
+      setTimeout(() => {
+        navigate('/cart')
+      }, 1500);
     }
 
     
@@ -89,7 +92,7 @@ const ProductDetails = () => {
     <ToastAlert/>
 
       <section className="text-gray-700 body-font overflow-hidden bg-white">
-  <div className="container px-5 py-16 mx-auto">
+  <div className="container px-5 pt-6 pb-16 mx-auto">
     <div className="lg:w-[75%]  w-full flex flex-wrap  px-5">
       {product.images&& product.images.map((imgs)=>(
   <img alt="ecommerce" className="lg:w-2/5  h-[60%] w-5/6  object-cover object-center rounded border border-gray-200" src={imgs.url} />
