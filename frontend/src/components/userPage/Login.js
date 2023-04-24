@@ -76,7 +76,7 @@ useEffect(() => {
       <div className="-space-y-px rounded-md shadow-sm ">
         <div className='mb-7'>
           <label htmlFor="email-address" className="sr-only">Email address</label>
-          <input id="email-address" onChange={getLoginData} value={login.email} name="email" type="email" autoComplete="email" required className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Email address"/>
+          <input id="email-address" onChange={getLoginData} value={login.email} name="email" type="email" autoComplete="email" className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Email address"/>
         </div>
         <div>
           <label htmlFor="password" className="sr-only">Password</label>

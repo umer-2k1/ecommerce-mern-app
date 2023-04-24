@@ -98,17 +98,17 @@ useEffect(() => {
 
       <div className=''>
           <label htmlFor="name" className="sr-only">Name</label>
-          <input id="name" onChange={getSignUpData} value={signUp.name} name="name" type="type" required className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Name"/>
+          <input id="name" onChange={getSignUpData} value={signUp.name} name="name" type="type" className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Name"/>
         </div>
 
         <div className=''>
           <label htmlFor="email-address" className="sr-only">Email address</label>
-          <input id="email-address" onChange={getSignUpData} value={signUp.email} name="email" type="email" autoComplete="email" required className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Email address"/>
+          <input id="email-address" onChange={getSignUpData} value={signUp.email} name="email" type="email" autoComplete="email"   className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Email address"/>
         </div>
         
         <div className=''>
           <label htmlFor="password" className="sr-only">Password</label>
-          <input id="password" onChange={getSignUpData} value={signUp.password} name="password" type="password" autoComplete="current-password" required className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password"/>
+          <input id="password" onChange={getSignUpData} value={signUp.password} name="password" type="password" autoComplete="current-password"   className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password"/>
         </div>
       </div>
 
