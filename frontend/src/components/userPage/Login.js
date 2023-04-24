@@ -18,17 +18,23 @@ const Login = () => {
         const {name, value} = e.target
         setLogin({...login, [name]:value})
     }
+   
+    
     const loginSubmited = (e)=>{
       e.preventDefault()
       const {email, password} = login
-      dispatch(emptyCart())
-      dispatch(getLoginUser(email, password))
 
-      if (password.length<=0 || email.length<=0) {
-        toast.warn("Incomplete password or email")
-      }
-      
+      if (!(password && email)) {
+          return toast.warn("Incomplete password or email")
+        }
+      else{
+
+        dispatch(emptyCart())
+        dispatch(getLoginUser(email, password))
+      } 
     }
+
+
 // let redirect = location.search?location.search.split("=")[1]:"/"
 useEffect(() => {
   if (error) {
