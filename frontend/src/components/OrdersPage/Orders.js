@@ -23,7 +23,6 @@ const Orders = ({activeStep}) => {
 const submitShippingDetails = (e)=>{
  
   e.preventDefault()
-  console.log("Length is ",phoneNo.length)
   
   if (phoneNo.length>12 || phoneNo.length<10) {
         toast.error("Phone No must not greater than 12 OR less than 10")

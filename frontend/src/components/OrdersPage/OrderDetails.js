@@ -24,15 +24,7 @@ const trackOrderHandler = ()=>{
 
 // useEffect
 useEffect(() => {
-    // if (error) {
-    //   toast.error(error)
-    //   dispatch(clearErrors())
-    // }
-      // else if(isAuthenticate===true){
-      //   navigate("/")
-      // }
       dispatch(orderDetails(id))
-      console.log(order)
     },[dispatch, id, toast]);
 
 

@@ -12,7 +12,6 @@ import ToastAlert from '../../layout/ToastAlert';
 import { formatNumberWithCommas } from '../../utility/utilsFunction';
 
 
-
 const ProductDetails = () => {
     const navigate = useNavigate()
     const location = useLocation()
@@ -20,6 +19,7 @@ const ProductDetails = () => {
     let {id} = useParams()
     const {loading, product, error} = useSelector((state)=> state.productDetails)
     const {cartItems} = useSelector((state)=> state.cart)
+    const isItemInCart = cartItems.some((item) => item.product === id); // Check if current item id exists in cart items
 
     // Quantity state
     const [newQty, setNewQty] = useState(1)
@@ -60,7 +60,6 @@ const ProductDetails = () => {
     const buyNowHandler = ()=>{
       dispatch(addCartItems(id, newQty))
       let currentUrl = location.pathname
-      console.log(currentUrl)
       let updatedUrl = currentUrl.replace(currentUrl, '/orders')
       navigate(updatedUrl)
       toast.success("Item Added to Cart")
@@ -76,8 +75,9 @@ const ProductDetails = () => {
         dispatch(clearErrors())
       }
         dispatch(getProductDetails(id))
-        console.log(product)
-      },[dispatch,id, error, toast]);
+
+     
+      },[dispatch,id, error, toast, isItemInCart]);
 
    
    
@@ -152,48 +152,64 @@ viewBox="0 0 48 48">
 
 
         <div className="details flex flex-col md:flex-row md:my-3 my-2 md:items-center items-start space-y-4 md:space-y-0">
-                <p>Status: 
-<b className= {product.availableQty < 1 ? "redColor" :"greenColor"}>{product.availableQty < 1 ? "OutOfStock" :"InStock"}</b>
-                  </p>
-            <div className="qty md:ml-12 ml-6 border-2 border-gray-400">
+<p>Status: <b className= {product.availableQty < 1 ? "redColor" :"greenColor"}>{product.availableQty < 1 ? "OutOfStock" :"InStock"}</b></p>
+            
+
+
+{isItemInCart==true?
+(<>
+</>):
+(
+
+<>
+<div className="qty md:ml-12 ml-6 border-2 border-gray-400">
             <button onClick={decreaseQty} className=' p-1 md:p-2 text-blue-400 md:rounded'>-</button>
 
-
             <input readOnly className='special border-none p-1 md:p-2 w-[7vw] md:w-[4vw] text-center outline-0 font-roboto text-black ' type="number" value={newQty} />
-
-
-            {/* {cartItems.map((val)=>
-            (
-              val.quantity>1?
-              <input readOnly className='special border-none p-1 md:p-2 w-[7vw] md:w-[4vw] text-center outline-0 font-roboto text-black ' type="number" value={val.quantity} /> :
-          ''
-              
-            )
-            )} */}
-
-            {/* <input readOnly className='special border-none p-1 md:p-2 w-[7vw] md:w-[4vw] text-center outline-0 font-roboto text-black ' type="number" value={cartItems.quantity>1? cartItems.quantity: newQty} /> */}
+         
             <button onClick={increaseQty} className='p-1 md:p-2 text-blue-400  md:rounded'>+</button>
         </div>
         <span className='px-4'> <strong>{product.availableQty}</strong>  items left</span>
-        </div>
+
+</>
+)
+
+}
+
+</div>
 <hr />
-        <div className=" button my-5 ">
-{/* <button disabled={product.availableQty<1? true:false} onClick={buyNowHandler} className='px-1 py-1 w-28 md:w-36 text-white md:px-2 md:py-2 bg-[#E86229] rounded-md disabled:cursor-not-allowed disabled:opacity-60' type="submit">Buy Now</button> */}
+
+
+
+
+
+<div className=" button my-5 "> 
+{isItemInCart==true?
+(<>
+</>):
+(
+
+<>
 <button onClick={buyNowHandler} className='px-1 py-1 w-28 md:w-36 text-white md:px-2 md:py-2 bg-[#E86229] rounded-md' type="submit">Buy Now</button>
 
+</>)
+
+}
 
 
-<button disabled={product.availableQty<1? true:false} onClick={addToCartHandler} className='w-28 md:w-36 text-white mx-1 md:mx-6 px-1 py-1 md:px-2 md:py-2 bg-blue-800 rounded-md disabled:cursor-not-allowed disabled:opacity-60' type="submit">Add to Cart</button>
 
-{/* {
-  cartItems ?
-  <button disabled className='w-28 md:w-36 text-white mx-1 md:mx-6 px-1 py-1 md:px-2 md:py-2 bg-yellow-800 rounded-md' type="submit">Added To Cart</button>
-  :
-  <button onClick={addToCartHandler} className='w-28 md:w-36 text-white mx-1 md:mx-6 px-1 py-1 md:px-2 md:py-2 bg-blue-800 rounded-md' type="submit">Add to Cart</button>
-} */}
+{isItemInCart==true?
+(<>
+ <button className='w-28 md:w-36 text-white mx-1 md:mx-6 px-1 py-1 md:px-2 md:py-2 bg-red-700 rounded-md cursor-not-allowed opacity-50' type="submit">Added</button>
 
+</>):
+(<>
+<button onClick={addToCartHandler} className='w-28 md:w-36 text-white mx-1 md:mx-6 px-1 py-1 md:px-2 md:py-2 bg-blue-800 rounded-md disabled:cursor-not-allowed disabled:opacity-60' type="submit">Add to Cart</button>
 
-        
+</>)
+
+}
+      
         </div>
 
         <div className="submit-reviews">
@@ -224,13 +240,6 @@ viewBox="0 0 48 48">
     )
 
   }
-
-
-
-
-
-
-
 
 
     </>

@@ -55,12 +55,10 @@ const order = {
 
 
           if (response.status ===200) {
-            console.log("Payment Id, " , token.card.id )
             order.paymentInfo = {
               id: token.card.id,
               status: "Succeeded"
             }
-            console.log(order)
            dispatch(creatingOrders(order))
            toast.success("Your Order has been Placed!")
            navigate('/order-placed')
