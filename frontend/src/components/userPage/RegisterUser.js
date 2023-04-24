@@ -66,7 +66,7 @@ const registrationSubmit = (e)=>{
     myform.set("avatar", avatar)
     console.log("Signup Successfully")
     dispatch(emptyCart())
-    dispatch(registerNewUser(myform)).then(()=> history(`/auth/loginUser`))
+    dispatch(registerNewUser(myform)).then(()=> navigate(`/auth/loginUser`))
   }
   
 }
