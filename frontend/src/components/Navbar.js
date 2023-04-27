@@ -18,9 +18,9 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="overflow-x-hidden flex w-full h-14 bg-slate-100 border-b-2 border-b-gray-200  items-center justify-between -z-10 shadow-md">
+      <div className="overflow-x-hidden flex w-full h-20 bg-[#FDFDFD] border-b-2 border-b-gray-200  items-center justify-between -z-10 shadow-md">
         {/* icons */}
-        <div className="demo inline flex px-6 ">
+        <div className="demo inline flex items-center justify-center px-6 ">
           <div
             onClick={toggle}
             className=" inline-block cursor-pointer md:hidden">
@@ -31,7 +31,7 @@ const Navbar = () => {
 
           <div className="pl-7 md:font-bold flex justify-center items-center">
             <img className="items-center justify-center text-center" src={webLogo3} alt="" />
-            <h1 className="heading px-2 text-center font-bold text-xl text-[#2240AF]">iElectronix Tech</h1>
+            <h1 className="heading px-4 md:px-2 text-center font-bold text-sm sm:text-base md:text-xl text-[#2240AF]">iElectronix Tech</h1>
           </div>
         </div>
 
