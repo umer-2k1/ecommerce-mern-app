@@ -5,6 +5,7 @@ import { GrClose } from "react-icons/gr";
 import "../Style/Navbar.css";
 import { Link } from 'react-router-dom';
 import {useSelector } from 'react-redux'
+import webLogo3 from '../images/logo-favicon.ico'
 
 
 const Navbar = () => {
@@ -22,15 +23,15 @@ const Navbar = () => {
         <div className="demo inline flex px-6 ">
           <div
             onClick={toggle}
-            className=" inline-block cursor-pointer md:hidden"
-          >
+            className=" inline-block cursor-pointer md:hidden">
             <div className="line h-0.5 w-6 bg-black my-1"></div>
             <div className="line h-0.5 w-6 bg-black my-1"></div>
             <div className="line h-0.5 w-6 bg-black my-1"></div>
           </div>
 
-          <div className="pl-7 md:font-bold">
-            <h2>iElectronixTech</h2>
+          <div className="pl-7 md:font-bold flex justify-center items-center">
+            <img className="items-center justify-center text-center" src={webLogo3} alt="" />
+            <h1 className="heading px-2 text-center font-bold text-xl text-[#2240AF]">iElectronix Tech</h1>
           </div>
         </div>
 
