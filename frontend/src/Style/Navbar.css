@@ -1,11 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
+
+
 *{
     margin: 0;
     padding: 0;
 }
+
+body{
+    overflow-x: hidden;
+}
+
 .sidebar.active{
     left: 0;
     z-index: 20;
 }
-body{
-    overflow-x: hidden;
+
+
+.heading{
+    font-family: 'Bruno Ace', cursive;
 }
