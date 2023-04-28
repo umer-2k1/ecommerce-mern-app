@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {getLoginUser, clearErrors} from '../../actions/userAction'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import {emptyCart} from '../../actions/cartAction'
+import ToastAlert from '../../layout/ToastAlert'
+import webLogo from '../../images/logo-favicon.ico'
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -48,28 +50,13 @@ useEffect(() => {
 
   return (
     <>
-          <ToastContainer 
-    position="top-right"
-    autoClose={1000}
-    hideProgressBar={false}
-    newestOnTop
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss={false}
-    draggable
-    pauseOnHover={false}
-    theme="dark"
-    />
+  <ToastAlert/>
 
            <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div className="w-full max-w-md space-y-8">
     <div>
-      <img className="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company"/>
+      <img className="mx-auto h-12 w-auto" src= {webLogo} alt="Company Logo"/>
       <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Login to your account</h2>
-      {/* <p className="mt-2 text-center text-sm text-gray-600">
-        Or
-        <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">start your 14-day free trial</a>
-      </p> */}
     </div>
     <form onSubmit={loginSubmited} className="mt-8 space-y-7" method="POST">
       <input type="hidden" name="remember" value="true"/>

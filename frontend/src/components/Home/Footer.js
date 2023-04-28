@@ -1,6 +1,9 @@
 import React,{useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getAllProducts } from '../../actions/productAction'
+import webLogo from '../../images/logo-favicon.ico'
+
+
 
 const Footer = () => {
   const dispatch = useDispatch()
@@ -18,9 +21,7 @@ const Footer = () => {
   <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
     <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
       <a href='#' className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-        </svg>
+      <img className=" w-auto" src= {webLogo} alt="Company Logo"/>
         <span className="ml-3 text-xl text-white">iElectronixTech</span>
       </a>
       <p className="mt-2 text-sm text-white">Ecommerce, also known as electronic commerce or internet commerce, refers to the buying and selling of goods or services using the internet</p>
