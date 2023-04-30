@@ -102,7 +102,7 @@ const proceedToPaymentHandler = ()=>{
 
 <div className="sub-total flex flex-inline justify-between py-4 ">
 <p>Subtotal</p>
-<span>{formatNumberWithCommas(subTotal.toFixed(2))}</span>
+<span>Rs. {formatNumberWithCommas(subTotal.toFixed(2))}</span>
 </div>
 
 <div className="sub-total flex flex-inline justify-between py-4 ">

@@ -1,7 +1,6 @@
 const dotnet = require('dotenv')
 dotnet.config()
-const stripe = process.env.STRIPE_SECRET_KEY
-
+const stripe =  require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 const paymentProcess = async(req,res,next)=>{
     const {token, amount} = req.body
