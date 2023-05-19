@@ -17,6 +17,7 @@ export const getAllProducts = (keyword = "", currentPage =1, price=[0,25000], ca
       type: ALL_PRODUCT_REQUEST,
     });
   let link = `${API_BASE_URL}/api/product/getproducts`;
+  console.log(link)
 
 
   // let link = `${API_BASE_URL}/api/product/getproducts?page=${currentPage}&prize[gte]=${price[0]}&prize[lte]=${price[1]}&rattings[gte]=${rating}`;
