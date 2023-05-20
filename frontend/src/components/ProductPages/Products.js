@@ -132,7 +132,7 @@ const Products = () => {
 
     <div className="head-main flex items-center justify-between pb-4 border-b-2 border-gray-400">
     <Typography variant='h6' >Filters</Typography >
-    <button onClick={clearAllfilters} className='filter-button p-1 bg-blue-500 text-white' type="reset">Clear Filters</button>
+    <button onClick={clearAllfilters} className='filter-button  text-white w-28 md:w-36 md:ml-6 px-1 py-1 md:px-2 md:py-2 bg-blue-800 hover:bg-blue-700  rounded-md' type="reset">Clear Filters</button>
     </div>
 
         <div className="category pb-2 ">

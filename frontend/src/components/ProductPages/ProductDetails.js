@@ -190,7 +190,7 @@ viewBox="0 0 48 48">
 (
 
 <>
-<button onClick={buyNowHandler} className='px-1 py-1 w-28 md:w-36 text-white md:px-2 md:py-2 bg-[#E86229] rounded-md' type="submit">Buy Now</button>
+<button onClick={buyNowHandler} className='px-1 py-1 w-28 md:w-36 text-white md:px-2 md:py-2 bg-[#E86229] hover:bg-[#e77341] rounded-md' type="submit">Buy Now</button>
 
 </>)
 
@@ -204,7 +204,7 @@ viewBox="0 0 48 48">
 
 </>):
 (<>
-<button onClick={addToCartHandler} className='w-28 md:w-36 text-white mx-1 md:mx-6 px-1 py-1 md:px-2 md:py-2 bg-blue-800 rounded-md disabled:cursor-not-allowed disabled:opacity-60' type="submit">Add to Cart</button>
+<button onClick={addToCartHandler} className='w-28 md:w-36 text-white mx-1 md:mx-6 px-1 py-1 md:px-2 md:py-2 bg-blue-800 hover:bg-blue-700  rounded-md disabled:cursor-not-allowed disabled:opacity-60' type="submit">Add to Cart</button>
 
 </>)
 
