@@ -4,12 +4,17 @@ import linkedinIcon from '../../images/linkedin.svg'
 import githubIcon from '../../images/github.svg'
 import webIcon from '../../images/webicon.png'
 import twitterIcon from '../../images/twitter.png'
+import { Helmet } from 'react-helmet';
 
 
 const AboutUs = () => {
   return (
     <>
-      
+
+<Helmet>
+<title>About Us | iElectronixTech</title>
+</Helmet>
+
       <section className="text-gray-600 body-font">
   <div className="container px-5 py-12 mx-auto">
 

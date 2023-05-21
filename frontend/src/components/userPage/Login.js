@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import {emptyCart} from '../../actions/cartAction'
 import ToastAlert from '../../layout/ToastAlert'
 import webLogo from '../../images/logo-favicon.ico'
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -50,6 +51,11 @@ useEffect(() => {
 
   return (
     <>
+
+<Helmet>
+<title>Login | iElectronixTech</title>
+</Helmet>
+
   <ToastAlert/>
 
            <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">

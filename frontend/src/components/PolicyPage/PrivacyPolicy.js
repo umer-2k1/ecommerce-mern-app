@@ -1,9 +1,14 @@
 import React from 'react'
+import { Helmet } from 'react-helmet';
 
 const PrivacyPolicy = () => {
   return (
     <>
-      
+
+<Helmet>
+<title>Privacy & Policy | iElectronixTech</title>
+</Helmet>
+
       <div className='mx-7 my-12'>
 
 <h1 className='text-4xl mx-auto font-bold leading-normal mt-2 mb-2 text-center'>Privacy Policy</h1>

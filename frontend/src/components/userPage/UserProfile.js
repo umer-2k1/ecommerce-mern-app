@@ -4,6 +4,7 @@ import { useNavigate  } from "react-router-dom";
 // import Loader from '../../layout/Loader';
 import Typography from '@mui/material/Typography';
 import {Link} from 'react-router-dom'
+import { Helmet } from 'react-helmet';
 
 
 
@@ -18,6 +19,10 @@ let navigate = useNavigate();
 
   return (
     <>
+
+<Helmet>
+<title>User Profile | iElectronixTech</title>
+</Helmet>
 
 
 <div className="profile-main-div flex md:flex-row flex-col my-9 md:mx-12 mx-auto h-full justify-center md:justify-start items-center md:items-start">

@@ -8,6 +8,7 @@ import { FcRight } from "react-icons/fc";
 import Typography from '@mui/material/Typography';
 import { formatNumberWithCommas } from '../../utility/utilsFunction'
 import {Helmet} from "react-helmet";
+import { Helmet } from 'react-helmet';
 
 
 

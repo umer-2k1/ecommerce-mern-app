@@ -7,6 +7,7 @@ import {toast } from 'react-toastify';
 import ToastAlert from '../../layout/ToastAlert'
 import {emptyCart} from '../../actions/cartAction'
 import webLogo from '../../images/logo-favicon.ico'
+import { Helmet } from 'react-helmet';
 
 const RegisterUser = () => {
 const dispatch = useDispatch()
@@ -83,6 +84,10 @@ useEffect(() => {
 
   return (
     <>
+
+<Helmet>
+<title>Register | iElectronixTech</title>
+</Helmet>
 
 <ToastAlert/>
 

@@ -1,8 +1,14 @@
 import React from 'react'
+import { Helmet } from 'react-helmet';
 
 const Terms_Condition = () => {
   return (
     <>
+  
+  <Helmet>
+<title>Terms & Conditions | iElectronixTech</title>
+</Helmet>
+
     <div className='mx-7 my-12 px-7' >
 
       <h1 className='text-4xl mx-auto font-bold leading-normal mt-2 mb-2 text-center'>Terms & Conditions</h1>
