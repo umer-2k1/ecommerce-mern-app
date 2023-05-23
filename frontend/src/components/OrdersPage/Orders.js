@@ -6,6 +6,7 @@ import { Country, State, City }  from 'country-state-city';
 import CheckoutSteps from './CheckoutSteps';
 import {toast } from 'react-toastify';
 import ToastAlert from '../../layout/ToastAlert';
+import { Helmet } from 'react-helmet';
 
 const Orders = ({activeStep}) => {
     let navigate = useNavigate();
@@ -38,6 +39,10 @@ const submitShippingDetails = (e)=>{
 
   return (
     <>
+<Helmet>
+<title>shipping Info | iElectronixTech</title>
+</Helmet>
+
 
 <ToastAlert/>
     

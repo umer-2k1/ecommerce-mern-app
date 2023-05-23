@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import CheckoutSteps from './CheckoutSteps';
 import { formatNumberWithCommas } from '../../utility/utilsFunction';
 import {useNavigate } from 'react-router-dom'
-// import { elementAcceptingRef } from '@mui/utils';
+import { Helmet } from 'react-helmet';
 
 
 
@@ -42,6 +42,9 @@ const proceedToPaymentHandler = ()=>{
   return (
     <>
 
+<Helmet>
+<title>Confirm Orders | iElectronixTech</title>
+</Helmet>
 
 <CheckoutSteps activeStep={1} />
    

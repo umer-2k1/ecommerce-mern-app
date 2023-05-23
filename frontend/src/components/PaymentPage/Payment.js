@@ -10,6 +10,7 @@ import { API_BASE_URL } from '../../config/apiConfig';
 import { toast } from 'react-toastify';
 import { formatNumberWithCommas } from '../../utility/utilsFunction';
 import ToastAlert from '../../layout/ToastAlert';
+import { Helmet } from 'react-helmet';
 
 
 const Payment = () => {
@@ -91,7 +92,9 @@ useEffect(() => {
 
   return (
     <>
-    
+<Helmet>
+<title>Payment Process | iElectronixTech</title>
+</Helmet>
     <ToastAlert/>
 
     <CheckoutSteps activeStep={2} />
